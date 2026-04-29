@@ -1,0 +1,39 @@
+{
+  "empresa": {
+    "nome": "Codel Reciclagem",
+    "slogan": "Transformando resíduos em futuro",
+    "whatsapp": "5534996723880",
+    "telefone": "(34) 9 9672-3880",
+    "email": "contato@codelreciclagem.com.br",
+    "youtube_video": "t5lspib6soM",
+    "youtube_canal": "https://www.youtube.com/@CodelReciclagem",
+    "instagram": "https://www.instagram.com/codelreciclagem",
+    "facebook": "https://www.facebook.com/codelreciclagem"
+  },
+  "impacto": {
+    "anos": "10+",
+    "toneladas": "105,5",
+    "pontos": "8",
+    "parceiros": "50+"
+  },
+  "materiais": [
+    "Papel e Papelão","Plásticos","Metais","Vidros",
+    "Eletrônicos","Óleo de Cozinha","Pilhas e Baterias","Pneus"
+  ],
+  "pontos_coleta": [
+    { "nome": "Ponto Central",      "endereco": "Av. João Pinheiro, 1234 - Centro",            "horario": "Seg-Sex: 8h-17h | Sáb: 8h-12h" },
+    { "nome": "Ponto Norte",        "endereco": "Rua das Acácias, 456 - Bairro Norte",          "horario": "Seg-Sex: 8h-17h" },
+    { "nome": "Ponto Sul",          "endereco": "Av. Rondon Pacheco, 789 - Zona Sul",           "horario": "Seg-Sex: 8h-17h | Sáb: 8h-12h" },
+    { "nome": "Ponto Leste",        "endereco": "Rua Goiás, 321 - Setor Leste",                "horario": "Seg-Sex: 8h-17h" },
+    { "nome": "Ponto Oeste",        "endereco": "Av. Nicomedes Alves, 654 - Bairro Oeste",     "horario": "Seg-Sex: 8h-17h" },
+    { "nome": "Ponto Industrial",   "endereco": "Dist. Industrial, Quadra 12 - Galpão 3",      "horario": "Seg-Sex: 7h-17h" },
+    { "nome": "Ponto Shopping",     "endereco": "Av. Getúlio Vargas, 987 - Setor Sul",         "horario": "Seg-Dom: 10h-22h" },
+    { "nome": "Ponto Universidade", "endereco": "Rua Alameda dos Ipês, 159 - Santa Mônica",    "horario": "Seg-Sex: 8h-18h" }
+  ],
+  "faq": [
+    { "pergunta": "Quais materiais vocês coletam?",       "resposta": "Coletamos papel, papelão, plásticos, metais, vidros, eletrônicos, óleo de cozinha usado, pilhas, baterias e pneus." },
+    { "pergunta": "Como agendar uma coleta?",             "resposta": "Entre em contato pelo WhatsApp (34) 9 9672-3880 ou pelo formulário do site. Para grandes volumes, fazemos coleta agendada diretamente no local." },
+    { "pergunta": "A coleta tem custo?",                  "resposta": "Para grandes volumes (empresas, condomínios, eventos), a coleta é gratuita. Para pequenas quantidades, indicamos nossos pontos de coleta mais próximos." },
+    { "pergunta": "Vocês emitem certificado de destinação?", "resposta": "Sim! Para empresas, emitimos certificado de destinação ambientalmente adequada, documento exigido em auditorias e certificações ISO 14001." }
+  ]
+}

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Codel Reciclagem — Transformando resíduos em futuro</title>
+<meta name="description" content="Há mais de 10 anos coletando e reciclando resíduos em Uberlândia. 8 pontos de coleta, coleta agendada e certificado de destinação."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --verde:#1b7c3b; --verde-claro:#2ea84f; --verde-neon:#4cdb78;
+  --azul:#0d2b52; --branco:#f5f7f2; --cinza:#8a9189; --escuro:#0a0f0d;
+  --ff-display:'Syne',sans-serif; --ff-body:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--ff-body);background:var(--escuro);color:var(--branco);overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;align-items:center;justify-content:space-between;transition:background .3s}
+nav.scrolled{background:rgba(10,15,13,.92);backdrop-filter:blur(16px)}
+.nav-logo{font-family:var(--ff-display);font-weight:800;font-size:1.3rem;color:var(--verde-neon);text-decoration:none}
+.nav-logo span{color:var(--branco)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{color:var(--branco);text-decoration:none;font-size:.9rem;font-weight:500;opacity:.75;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--verde-neon)}
+.nav-cta{background:var(--verde);color:#fff;padding:.55rem 1.4rem;border-radius:2rem;font-size:.88rem;font-weight:600;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--verde-claro)}
+#hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding:7rem 2rem 4rem}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(27,124,59,.18) 0%,transparent 60%),linear-gradient(135deg,#0a0f0d 0%,#0d1a10 50%,#070d14 100%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(76,219,120,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(76,219,120,.04) 1px,transparent 1px);background-size:60px 60px}
+.hero-orb{position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(27,124,59,.15),transparent 70%);right:-100px;top:50%;transform:translateY(-50%);animation:pulse 8s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:translateY(-50%) scale(1)}50%{transform:translateY(-50%) scale(1.1)}}
+.hero-content{position:relative;max-width:700px}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(76,219,120,.1);border:1px solid rgba(76,219,120,.3);border-radius:2rem;padding:.4rem 1rem;font-size:.8rem;color:var(--verde-neon);font-weight:600;margin-bottom:1.8rem;letter-spacing:.04em}
+.hero-badge::before{content:'';width:8px;height:8px;border-radius:50%;background:var(--verde-neon);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:var(--ff-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:800;line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem}
+h1 em{font-style:normal;color:var(--verde-neon)}
+.hero-sub{font-size:1.1rem;line-height:1.7;opacity:.7;max-width:520px;margin-bottom:2.5rem;font-weight:300}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:.6rem;background:var(--verde);color:#fff;padding:.85rem 2rem;border-radius:.5rem;font-weight:600;font-size:1rem;text-decoration:none;transition:all .25s;border:2px solid var(--verde)}
+.btn-primary:hover{background:var(--verde-claro);transform:translateY(-2px);box-shadow:0 12px 30px rgba(27,124,59,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:.6rem;background:transparent;color:var(--branco);padding:.85rem 2rem;border-radius:.5rem;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid rgba(255,255,255,.2);transition:all .25s}
+.btn-outline:hover{border-color:rgba(255,255,255,.6);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:3rem;margin-top:4rem;flex-wrap:wrap}
+.stat-num{font-family:var(--ff-display);font-size:2.5rem;font-weight:800;color:var(--verde-neon);line-height:1;display:block}
+.stat-label{font-size:.8rem;opacity:.5;font-weight:400;margin-top:.3rem;letter-spacing:.05em;text-transform:uppercase}
+</style>
+<style>
+section{padding:6rem 2rem}
+.container{max-width:1100px;margin:0 auto}
+.section-tag{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--verde-neon);margin-bottom:.8rem}
+.section-title{font-family:var(--ff-display);font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;letter-spacing:-.02em;margin-bottom:1.2rem}
+.section-sub{font-size:1.05rem;opacity:.6;line-height:1.7;max-width:560px;font-weight:300}
+#impacto{background:linear-gradient(135deg,var(--verde) 0%,#0e5228 100%);position:relative;overflow:hidden;padding:0}
+.impacto-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.impacto-item{background:rgba(255,255,255,.06);padding:3rem 2rem;text-align:center;transition:background .25s}
+.impacto-item:hover{background:rgba(255,255,255,.12)}
+.impacto-num{font-family:var(--ff-display);font-size:3.5rem;font-weight:800;color:#fff;line-height:1;display:block}
+.impacto-label{font-size:.85rem;opacity:.75;margin-top:.6rem;letter-spacing:.04em}
+.impacto-sub{font-size:.75rem;opacity:.45;margin-top:.2rem}
+#servicos{background:var(--escuro)}
+.servicos-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;margin-top:4rem}
+.servico-card{background:#111812;padding:3rem;transition:background .25s}
+.servico-card:hover{background:#151d16}
+.servico-icon{font-size:2.5rem;margin-bottom:1.5rem;display:block}
+.servico-card h3{font-family:var(--ff-display);font-size:1.3rem;font-weight:700;margin-bottom:.8rem}
+.servico-card p{font-size:.95rem;opacity:.6;line-height:1.7;font-weight:300}
+.servico-num{font-size:.75rem;color:var(--verde-neon);font-weight:700;letter-spacing:.1em;margin-bottom:1rem;opacity:.6}
+#materiais{background:#0c120e}
+.materiais-wrap{margin-top:3rem;display:flex;flex-wrap:wrap;gap:.75rem}
+.material-tag{background:rgba(76,219,120,.07);border:1px solid rgba(76,219,120,.18);border-radius:.4rem;padding:.6rem 1.2rem;font-size:.9rem;transition:all .2s}
+.material-tag:hover{background:rgba(76,219,120,.15);border-color:rgba(76,219,120,.4);color:var(--verde-neon)}
+#video{background:var(--escuro)}
+.video-wrapper{margin-top:3rem;border-radius:.75rem;overflow:hidden;aspect-ratio:16/9;border:1px solid rgba(255,255,255,.08)}
+.video-wrapper iframe{width:100%;height:100%;border:none}
+.video-caption{margin-top:1.5rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.video-caption p{opacity:.5;font-size:.9rem}
+.btn-youtube{display:inline-flex;align-items:center;gap:.5rem;background:#ff0000;color:#fff;padding:.55rem 1.3rem;border-radius:.4rem;font-size:.85rem;font-weight:600;text-decoration:none;transition:opacity .2s}
+.btn-youtube:hover{opacity:.85}
+#pontos{background:#0c120e}
+.pontos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;margin-top:3rem}
+.ponto-card{background:#111812;border:1px solid rgba(255,255,255,.06);border-radius:.6rem;padding:1.5rem;transition:border-color .2s}
+.ponto-card:hover{border-color:rgba(76,219,120,.3)}
+.ponto-nome{font-family:var(--ff-display);font-size:1rem;font-weight:700;color:var(--verde-neon);margin-bottom:.5rem}
+.ponto-end{font-size:.88rem;opacity:.65;margin-bottom:.4rem;line-height:1.5}
+.ponto-hor{font-size:.8rem;opacity:.4;font-style:italic}
+.ponto-icon{font-size:1.3rem;margin-bottom:.8rem;display:block}
+#faq{background:var(--escuro)}
+.faq-list{margin-top:3rem;display:flex;flex-direction:column;gap:.75rem}
+.faq-item{background:#111812;border:1px solid rgba(255,255,255,.06);border-radius:.6rem;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:var(--branco);padding:1.4rem 1.8rem;text-align:left;font-family:var(--ff-body);font-size:1rem;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;transition:background .2s}
+.faq-q:hover{background:rgba(255,255,255,.03)}
+.faq-icon{font-size:1.2rem;color:var(--verde-neon);transition:transform .3s;flex-shrink:0}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a.open{max-height:200px}
+.faq-a p{padding:0 1.8rem 1.4rem;font-size:.95rem;opacity:.65;line-height:1.7;font-weight:300}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+#contato{background:#0c120e}
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
+.contato-info h3{font-family:var(--ff-display);font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.contato-info p{opacity:.6;line-height:1.7;margin-bottom:2rem;font-weight:300}
+.contato-detalhe{display:flex;align-items:center;padding:.9rem 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.contato-detalhe:last-of-type{border-bottom:none}
+.contato-detalhe span:first-child{font-size:1.2rem;margin-right:.75rem}
+.contato-detalhe a{color:var(--branco);text-decoration:none;opacity:.7;transition:opacity .2s;font-size:.95rem}
+.contato-detalhe a:hover{opacity:1;color:var(--verde-neon)}
+.form-group{margin-bottom:1.2rem}
+.form-group label{display:block;font-size:.85rem;opacity:.6;margin-bottom:.5rem;font-weight:500}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:#111812;border:1px solid rgba(255,255,255,.1);border-radius:.5rem;padding:.85rem 1.1rem;color:var(--branco);font-family:var(--ff-body);font-size:.95rem;transition:border-color .2s;outline:none}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:var(--verde-neon)}
+.form-group textarea{resize:vertical;min-height:120px}
+.form-group select option{background:#111812}
+.btn-enviar{width:100%;background:var(--verde);color:#fff;border:none;padding:1rem;border-radius:.5rem;font-family:var(--ff-display);font-size:1rem;font-weight:700;cursor:pointer;transition:all .25s}
+.btn-enviar:hover{background:var(--verde-claro);transform:translateY(-1px)}
+footer{background:#070d0a;border-top:1px solid rgba(255,255,255,.06);padding:3rem 2rem}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem}
+.footer-logo{font-family:var(--ff-display);font-size:1.2rem;font-weight:800;color:var(--verde-neon)}
+.footer-logo span{color:var(--branco)}
+.footer-links{display:flex;gap:1.5rem;list-style:none}
+.footer-links a{color:var(--branco);text-decoration:none;opacity:.4;font-size:.85rem;transition:opacity .2s}
+.footer-links a:hover{opacity:.8}
+.footer-copy{opacity:.3;font-size:.8rem}
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:200;width:58px;height:58px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;animation:waFloat 3s ease-in-out infinite}
+.wa-float:hover{animation:none;transform:scale(1.1)}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.wa-float svg{width:28px;height:28px;fill:#fff}
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .impacto-grid{grid-template-columns:repeat(2,1fr)}
+  .servicos-grid{grid-template-columns:1fr}
+  .contato-grid{grid-template-columns:1fr}
+  .hero-stats{gap:1.5rem}
+  section{padding:4rem 1.2rem}
+  nav{padding:1rem 1.2rem}
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="#" class="nav-logo">Codel<span>Reciclagem</span></a>
+  <ul class="nav-links">
+    <li><a href="#servicos">Serviços</a></li>
+    <li><a href="#materiais">Materiais</a></li>
+    <li><a href="#pontos">Pontos de Coleta</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <a href="#contato" class="nav-cta">Fale Conosco</a>
+</nav>
+
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <div class="hero-badge">♻️ &nbsp;Reciclagem responsável em Uberlândia</div>
+    <h1>Transformando<br/><em>resíduos</em><br/>em futuro</h1>
+    <p class="hero-sub">Há mais de 10 anos cuidando do meio ambiente com coleta, triagem e destinação correta de resíduos recicláveis na nossa região.</p>
+    <div class="hero-actions">
+      <a href="#contato" class="btn-primary">🤝 Agendar Coleta</a>
+      <a href="#pontos" class="btn-outline">📍 Pontos de Coleta</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num" id="st-anos">0</span><span class="stat-label">Anos de atuação</span></div>
+      <div class="stat"><span class="stat-num" id="st-ton">0</span><span class="stat-label">Ton. recicladas em 2025</span></div>
+      <div class="stat"><span class="stat-num" id="st-pts">0</span><span class="stat-label">Pontos de coleta</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="impacto">
+  <div class="impacto-grid">
+    <div class="impacto-item"><span class="impacto-num">10+</span><div class="impacto-label">Anos de história</div><div class="impacto-sub">Desde 2014</div></div>
+    <div class="impacto-item"><span class="impacto-num">105,5t</span><div class="impacto-label">Recicladas em 2025</div><div class="impacto-sub">e crescendo</div></div>
+    <div class="impacto-item"><span class="impacto-num">8</span><div class="impacto-label">Pontos de coleta</div><div class="impacto-sub">Uberlândia e região</div></div>
+    <div class="impacto-item"><span class="impacto-num">50+</span><div class="impacto-label">Parceiros ativos</div><div class="impacto-sub">Empresas e condomínios</div></div>
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="container">
+    <div class="section-tag">O que fazemos</div>
+    <h2 class="section-title">Soluções completas<br/>em reciclagem</h2>
+    <p class="section-sub">Do agendamento à destinação final, cuidamos de todo o processo com responsabilidade e transparência.</p>
+    <div class="servicos-grid">
+      <div class="servico-card"><div class="servico-num">01</div><span class="servico-icon">🚛</span><h3>Coleta de Resíduos</h3><p>Realizamos a coleta de materiais recicláveis diretamente no seu estabelecimento ou residência, com agilidade e responsabilidade.</p></div>
+      <div class="servico-card"><div class="servico-num">02</div><span class="servico-icon">♻️</span><h3>Reciclagem Responsável</h3><p>Processamos e encaminhamos os materiais para reciclagem, garantindo o destino correto e a rastreabilidade de cada material coletado.</p></div>
+      <div class="servico-card"><div class="servico-num">03</div><span class="servico-icon">📍</span><h3>Pontos de Coleta</h3><p>Mantemos 8 pontos de coleta estratégicos na cidade para facilitar o descarte correto pela população a qualquer hora.</p></div>
+      <div class="servico-card"><div class="servico-num">04</div><span class="servico-icon">📋</span><h3>Certificado de Destinação</h3><p>Emitimos certificados de destinação ambientalmente adequada — exigido em auditorias e certificações ISO 14001.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="materiais">
+  <div class="container">
+    <div class="section-tag">Aceitamos</div>
+    <h2 class="section-title">Materiais que coletamos</h2>
+    <p class="section-sub">Aceitamos uma ampla variedade de materiais recicláveis. Não sabe se aceitamos? Entre em contato!</p>
+    <div class="materiais-wrap" id="materiais-list"></div>
+  </div>
+</section>
+
+<section id="video">
+  <div class="container">
+    <div class="section-tag">Nossa história</div>
+    <h2 class="section-title">Conheça nosso trabalho</h2>
+    <p class="section-sub">Veja de perto como transformamos resíduos em recursos e contribuímos para um futuro mais sustentável.</p>
+    <div class="video-wrapper">
+      <iframe src="https://www.youtube.com/embed/t5lspib6soM?rel=0&modestbranding=1" allowfullscreen loading="lazy" title="Codel Reciclagem"></iframe>
+    </div>
+    <div class="video-caption">
+      <p>Assista e conheça mais sobre nosso impacto ambiental.</p>
+      <a href="https://www.youtube.com/@CodelReciclagem" target="_blank" rel="noopener" class="btn-youtube">▶ Canal no YouTube</a>
+    </div>
+  </div>
+</section>
+
+<section id="pontos">
+  <div class="container">
+    <div class="section-tag">Onde estamos</div>
+    <h2 class="section-title">Nossos pontos de coleta</h2>
+    <p class="section-sub">8 locais estratégicos em Uberlândia para facilitar o seu descarte correto.</p>
+    <div class="pontos-grid" id="pontos-list"></div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="container">
+    <div class="section-tag">Dúvidas frequentes</div>
+    <h2 class="section-title">Perguntas frequentes</h2>
+    <p class="section-sub">Tudo o que você precisa saber sobre nossos serviços.</p>
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<section id="contato">
+  <div class="container">
+    <div class="section-tag">Fale conosco</div>
+    <h2 class="section-title">Entre em contato</h2>
+    <div class="contato-grid">
+      <div class="contato-info">
+        <h3>Vamos conversar?</h3>
+        <p>Para agendamentos, parcerias ou dúvidas, entre em contato. Respondemos rapidamente pelo WhatsApp.</p>
+        <div class="contato-detalhe"><span>📱</span><a href="https://wa.me/5534996723880" target="_blank">(34) 9 9672-3880 — WhatsApp</a></div>
+        <div class="contato-detalhe"><span>✉️</span><a href="mailto:contato@codelreciclagem.com.br">contato@codelreciclagem.com.br</a></div>
+        <div class="contato-detalhe"><span>📍</span><span style="opacity:.7;font-size:.95rem">Uberlândia, Minas Gerais</span></div>
+        <div style="margin-top:2rem;display:flex;gap:1rem">
+          <a href="https://www.instagram.com/codelreciclagem" target="_blank" style="color:var(--verde-neon);font-size:1.6rem;text-decoration:none" title="Instagram">📸</a>
+          <a href="https://www.youtube.com/@CodelReciclagem" target="_blank" style="color:var(--verde-neon);font-size:1.6rem;text-decoration:none" title="YouTube">▶️</a>
+        </div>
+      </div>
+      <div>
+        <div class="form-group"><label>Seu nome</label><input type="text" id="f-nome" placeholder="Como podemos te chamar?"/></div>
+        <div class="form-group"><label>E-mail ou WhatsApp</label><input type="text" id="f-contato" placeholder="Para retornarmos o contato"/></div>
+        <div class="form-group"><label>Tipo de solicitação</label>
+          <select id="f-tipo">
+            <option value="">Selecione...</option>
+            <option>Agendar coleta</option>
+            <option>Parceria empresarial</option>
+            <option>Certificado de destinação</option>
+            <option>Dúvida geral</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Mensagem</label><textarea id="f-msg" placeholder="Conte-nos como podemos ajudar..."></textarea></div>
+        <button class="btn-enviar" onclick="enviarWhatsApp()">Enviar pelo WhatsApp ↗</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Codel<span>Reciclagem</span></div>
+    <ul class="footer-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#pontos">Pontos</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Codel Reciclagem. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/5534996723880?text=Olá%2C%20vim%20pelo%20site!" class="wa-float" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+const MATERIAIS=["Papel e Papelão","Plásticos","Metais","Vidros","Eletrônicos","Óleo de Cozinha","Pilhas e Baterias","Pneus"];
+const PONTOS=[
+  {nome:"Ponto Central",end:"Av. João Pinheiro, 1234 - Centro",hor:"Seg-Sex: 8h-17h | Sáb: 8h-12h",ic:"🏙️"},
+  {nome:"Ponto Norte",end:"Rua das Acácias, 456 - Bairro Norte",hor:"Seg-Sex: 8h-17h",ic:"🌿"},
+  {nome:"Ponto Sul",end:"Av. Rondon Pacheco, 789 - Zona Sul",hor:"Seg-Sex: 8h-17h | Sáb: 8h-12h",ic:"🏘️"},
+  {nome:"Ponto Leste",end:"Rua Goiás, 321 - Setor Leste",hor:"Seg-Sex: 8h-17h",ic:"🌆"},
+  {nome:"Ponto Oeste",end:"Av. Nicomedes Alves, 654 - Bairro Oeste",hor:"Seg-Sex: 8h-17h",ic:"🌇"},
+  {nome:"Ponto Industrial",end:"Dist. Industrial, Quadra 12 - Galpão 3",hor:"Seg-Sex: 7h-17h",ic:"🏭"},
+  {nome:"Ponto Shopping",end:"Av. Getúlio Vargas, 987 - Setor Sul",hor:"Seg-Dom: 10h-22h",ic:"🛍️"},
+  {nome:"Ponto Universidade",end:"Rua Alameda dos Ipês, 159 - Santa Mônica",hor:"Seg-Sex: 8h-18h",ic:"🎓"}
+];
+const FAQ=[
+  {p:"Quais materiais vocês coletam?",r:"Coletamos papel, papelão, plásticos, metais, vidros, eletrônicos, óleo de cozinha usado, pilhas, baterias e pneus."},
+  {p:"Como agendar uma coleta?",r:"Entre em contato pelo WhatsApp (34) 9 9672-3880 ou pelo formulário do site. Para grandes volumes, fazemos coleta agendada diretamente no local."},
+  {p:"A coleta tem custo?",r:"Para grandes volumes (empresas, condomínios, eventos), a coleta é gratuita. Para pequenas quantidades, indicamos nossos pontos de coleta mais próximos."},
+  {p:"Vocês emitem certificado de destinação?",r:"Sim! Para empresas, emitimos certificado de destinação ambientalmente adequada, exigido em auditorias e certificações ISO 14001."}
+];
+
+document.getElementById('materiais-list').innerHTML=MATERIAIS.map(m=>`<span class="material-tag">♻ ${m}</span>`).join('');
+document.getElementById('pontos-list').innerHTML=PONTOS.map(p=>`<div class="ponto-card"><span class="ponto-icon">${p.ic}</span><div class="ponto-nome">${p.nome}</div><div class="ponto-end">📍 ${p.end}</div><div class="ponto-hor">🕐 ${p.hor}</div></div>`).join('');
+document.getElementById('faq-list').innerHTML=FAQ.map((f,i)=>`<div class="faq-item" id="fi${i}"><button class="faq-q" onclick="toggleFaq(${i})"><span>${f.p}</span><span class="faq-icon">+</span></button><div class="faq-a" id="fa${i}"><p>${f.r}</p></div></div>`).join('');
+
+function toggleFaq(i){
+  const item=document.getElementById('fi'+i),ans=document.getElementById('fa'+i),open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(el=>{el.classList.remove('open');el.querySelector('.faq-a').classList.remove('open')});
+  if(!open){item.classList.add('open');ans.classList.add('open')}
+}
+
+function animCount(el,target,suffix,dec=0){
+  let start=null,dur=1800;
+  function step(t){if(!start)start=t;const prog=Math.min((t-start)/dur,1),ease=1-Math.pow(1-prog,3),val=target*ease;el.textContent=(dec?val.toFixed(1):Math.floor(val))+suffix;if(prog<1)requestAnimationFrame(step)}
+  requestAnimationFrame(step);
+}
+
+window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',scrollY>50));
+
+function enviarWhatsApp(){
+  const nome=document.getElementById('f-nome').value||'',tipo=document.getElementById('f-tipo').value||'',msg=document.getElementById('f-msg').value||'';
+  const txt=`Olá! Meu nome é ${nome}.${tipo?' Assunto: '+tipo+'.':''} ${msg}`;
+  window.open('https://wa.me/5534996723880?text='+encodeURIComponent(txt),'_blank');
+}
+
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&e.target.id==='hero'){animCount(document.getElementById('st-anos'),10,'+');animCount(document.getElementById('st-ton'),105.5,'t',1);animCount(document.getElementById('st-pts'),8,'');obs.unobserve(e.target)}})},{threshold:.3});
+obs.observe(document.getElementById('hero'));
+</script>
+</body>
+</html>
