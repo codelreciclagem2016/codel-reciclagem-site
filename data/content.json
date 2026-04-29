@@ -2,38 +2,125 @@
   "empresa": {
     "nome": "Codel Reciclagem",
     "slogan": "Transformando resíduos em futuro",
+    "descricao": "Há 10 anos promovendo a gestão responsável de resíduos sólidos em Uberlândia e região, conectando empresas e comunidades a um futuro mais sustentável.",
     "whatsapp": "5534996723880",
-    "telefone": "(34) 9 9672-3880",
     "email": "contato@codelreciclagem.com.br",
-    "youtube_video": "t5lspib6soM",
-    "youtube_canal": "https://www.youtube.com/@CodelReciclagem",
-    "instagram": "https://www.instagram.com/codelreciclagem",
-    "facebook": "https://www.facebook.com/codelreciclagem"
+    "telefone": "(34) 9 9672-3880",
+    "endereco": "Uberlândia - MG",
+    "instagram": "https://instagram.com/codelreciclagem",
+    "facebook": "https://facebook.com/codelreciclagem"
   },
-  "impacto": {
-    "anos": "10+",
-    "toneladas": "105,5",
-    "pontos": "8",
-    "parceiros": "50+"
-  },
-  "materiais": [
-    "Papel e Papelão","Plásticos","Metais","Vidros",
-    "Eletrônicos","Óleo de Cozinha","Pilhas e Baterias","Pneus"
+  "impacto": [
+    { "numero": "10", "sufixo": "+", "label": "Anos de atuação" },
+    { "numero": "105,5", "sufixo": "t", "label": "Toneladas recicladas em 2025" },
+    { "numero": "8", "sufixo": "", "label": "Pontos de coleta ativos" }
+  ],
+  "servicos": [
+    {
+      "icone": "♻️",
+      "titulo": "Coleta de Resíduos",
+      "descricao": "Realizamos a coleta programada de resíduos sólidos recicláveis diretamente na sua empresa, com agilidade e segurança."
+    },
+    {
+      "icone": "📦",
+      "titulo": "Gestão de Resíduos",
+      "descricao": "Oferecemos consultoria completa para a gestão de resíduos sólidos, ajudando sua empresa a atender às exigências legais e ambientais."
+    },
+    {
+      "icone": "📄",
+      "titulo": "Certificado de Destinação",
+      "descricao": "Emitimos certificados de destinação correta dos resíduos, garantindo a rastreabilidade e conformidade legal para sua empresa."
+    },
+    {
+      "icone": "🏭",
+      "titulo": "Logística Reversa",
+      "descricao": "Desenvolvemos e executamos programas de logística reversa, assegurando que os materiais retornem ao ciclo produtivo de forma responsável."
+    }
+  ],
+  "processo": [
+    {
+      "passo": "01",
+      "titulo": "Diagnóstico",
+      "descricao": "Analisamos os resíduos gerados na sua empresa e identificamos o volume e tipo de material para definir a melhor solução."
+    },
+    {
+      "passo": "02",
+      "titulo": "Planejamento",
+      "descricao": "Elaboramos um plano de coleta personalizado, definindo frequência, horários e logística adequados à sua operação."
+    },
+    {
+      "passo": "03",
+      "titulo": "Coleta",
+      "descricao": "Nossa equipe realiza a coleta nos dias e horários combinados, com equipamentos adequados e total segurança."
+    },
+    {
+      "passo": "04",
+      "titulo": "Destinação",
+      "descricao": "Os materiais são triados, processados e destinados corretamente, com emissão de certificado de destinação."
+    }
   ],
   "pontos_coleta": [
-    { "nome": "Ponto Central",      "endereco": "Av. João Pinheiro, 1234 - Centro",            "horario": "Seg-Sex: 8h-17h | Sáb: 8h-12h" },
-    { "nome": "Ponto Norte",        "endereco": "Rua das Acácias, 456 - Bairro Norte",          "horario": "Seg-Sex: 8h-17h" },
-    { "nome": "Ponto Sul",          "endereco": "Av. Rondon Pacheco, 789 - Zona Sul",           "horario": "Seg-Sex: 8h-17h | Sáb: 8h-12h" },
-    { "nome": "Ponto Leste",        "endereco": "Rua Goiás, 321 - Setor Leste",                "horario": "Seg-Sex: 8h-17h" },
-    { "nome": "Ponto Oeste",        "endereco": "Av. Nicomedes Alves, 654 - Bairro Oeste",     "horario": "Seg-Sex: 8h-17h" },
-    { "nome": "Ponto Industrial",   "endereco": "Dist. Industrial, Quadra 12 - Galpão 3",      "horario": "Seg-Sex: 7h-17h" },
-    { "nome": "Ponto Shopping",     "endereco": "Av. Getúlio Vargas, 987 - Setor Sul",         "horario": "Seg-Dom: 10h-22h" },
-    { "nome": "Ponto Universidade", "endereco": "Rua Alameda dos Ipês, 159 - Santa Mônica",    "horario": "Seg-Sex: 8h-18h" }
+    {
+      "nome": "Ponto 1 — Uberlândia Centro",
+      "endereco": "Rua Exemplo, 100 — Centro, Uberlândia - MG",
+      "horario": "Seg a Sex: 8h às 17h"
+    },
+    {
+      "nome": "Ponto 2 — Bairro Jardim Brasília",
+      "endereco": "Av. Exemplo, 200 — Jardim Brasília, Uberlândia - MG",
+      "horario": "Seg a Sex: 8h às 17h"
+    },
+    {
+      "nome": "Ponto 3 — Distrito Industrial",
+      "endereco": "Rua Industrial, 300 — Distrito Industrial, Uberlândia - MG",
+      "horario": "Seg a Sex: 7h às 16h"
+    },
+    {
+      "nome": "Ponto 4 — Bairro Tibery",
+      "endereco": "Rua das Flores, 400 — Tibery, Uberlândia - MG",
+      "horario": "Seg a Sex: 8h às 17h"
+    },
+    {
+      "nome": "Ponto 5 — Shopping Park",
+      "endereco": "Av. Shopping, 500 — Uberlândia - MG",
+      "horario": "Seg a Sab: 9h às 18h"
+    },
+    {
+      "nome": "Ponto 6 — Bairro Morada Nova",
+      "endereco": "Rua Nova, 600 — Morada Nova, Uberlândia - MG",
+      "horario": "Seg a Sex: 8h às 17h"
+    },
+    {
+      "nome": "Ponto 7 — Santa Mônica",
+      "endereco": "Av. Santa Mônica, 700 — Santa Mônica, Uberlândia - MG",
+      "horario": "Seg a Sex: 8h às 17h"
+    },
+    {
+      "nome": "Ponto 8 — Bairro Luizote",
+      "endereco": "Rua Luizote, 800 — Luizote de Freitas, Uberlândia - MG",
+      "horario": "Seg a Sex: 8h às 17h"
+    }
   ],
   "faq": [
-    { "pergunta": "Quais materiais vocês coletam?",       "resposta": "Coletamos papel, papelão, plásticos, metais, vidros, eletrônicos, óleo de cozinha usado, pilhas, baterias e pneus." },
-    { "pergunta": "Como agendar uma coleta?",             "resposta": "Entre em contato pelo WhatsApp (34) 9 9672-3880 ou pelo formulário do site. Para grandes volumes, fazemos coleta agendada diretamente no local." },
-    { "pergunta": "A coleta tem custo?",                  "resposta": "Para grandes volumes (empresas, condomínios, eventos), a coleta é gratuita. Para pequenas quantidades, indicamos nossos pontos de coleta mais próximos." },
-    { "pergunta": "Vocês emitem certificado de destinação?", "resposta": "Sim! Para empresas, emitimos certificado de destinação ambientalmente adequada, documento exigido em auditorias e certificações ISO 14001." }
+    {
+      "pergunta": "Quais tipos de resíduos a Codel coleta?",
+      "resposta": "Coletamos papel, papelão, plástico, metal, vidro, eletrônicos e outros resíduos recicláveis. Entre em contato para verificar se seu tipo de resíduo está coberto."
+    },
+    {
+      "pergunta": "A coleta tem custo para a empresa?",
+      "resposta": "O custo varia de acordo com o volume e tipo de material. Em muitos casos, o próprio valor dos recicláveis cobre o serviço. Entre em contato para uma avaliação gratuita."
+    },
+    {
+      "pergunta": "A Codel emite documentação legal?",
+      "resposta": "Sim! Emitimos Certificado de Destinação Final e toda documentação necessária para comprovar a destinação correta dos resíduos, atendendo às exigências da PNRS."
+    },
+    {
+      "pergunta": "Qual a área de atendimento?",
+      "resposta": "Atendemos Uberlândia e região. Para verificar se sua localidade está na área de cobertura, entre em contato pelo WhatsApp."
+    },
+    {
+      "pergunta": "Com que frequência é feita a coleta?",
+      "resposta": "A frequência é definida de acordo com o volume gerado pela empresa. Pode ser semanal, quinzenal ou mensal, conforme a necessidade."
+    }
   ]
 }

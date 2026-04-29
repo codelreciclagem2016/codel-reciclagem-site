@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Codel Reciclagem</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --azul:    #0d1b6e; --azul-md: #1a2fa0; --azul-lt: #e8ecfa;
+      --verde:   #1e7f3e; --verde-md:#27a353;  --verde-lt:#e6f4eb;
+      --cinza-f: #f4f5f7; --borda: #dde1e9;
+      --texto:   #1a1d23; --cinza-md:#6b7280;
+      --r: 10px; --transicao: .25s ease;
+    }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cinza-f); color: var(--texto); min-height: 100vh; }
+    h1,h2,h3 { font-family: 'Sora', sans-serif; }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d1b6e 0%, #1a2fa0 60%, #0f5c2a 100%);
+    }
+    .login-box {
+      background: #fff; border-radius: 16px; padding: 48px 40px;
+      width: 100%; max-width: 400px; text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .login-logo { font-family: 'Sora',sans-serif; font-size: 1.5rem; font-weight: 700; color: var(--azul); margin-bottom: 6px; }
+    .login-sub  { color: var(--cinza-md); font-size: .9rem; margin-bottom: 32px; }
+    .login-box input {
+      width: 100%; padding: 12px 16px; border: 1px solid var(--borda);
+      border-radius: 8px; font-size: .95rem; margin-bottom: 14px; outline: none;
+      transition: border-color var(--transicao);
+    }
+    .login-box input:focus { border-color: var(--azul-md); }
+    .btn-login {
+      width: 100%; background: var(--azul); color: #fff;
+      border: none; border-radius: 99px; padding: 13px;
+      font-family: 'Sora',sans-serif; font-size: .95rem; font-weight: 600;
+      cursor: pointer; transition: background var(--transicao);
+    }
+    .btn-login:hover { background: var(--azul-md); }
+    .login-error { color: #dc2626; font-size: .85rem; margin-top: 12px; display: none; }
+
+    /* ── ADMIN LAYOUT ── */
+    #admin-screen { display: none; }
+    .admin-header {
+      background: var(--azul); color: #fff;
+      padding: 0 32px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      position: sticky; top: 0; z-index: 50;
+    }
+    .admin-header h1 { font-size: 1rem; font-weight: 600; }
+    .admin-header .badge { background: rgba(255,255,255,.12); padding: 4px 12px; border-radius: 99px; font-size: .8rem; }
+    .btn-logout { background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: #fff; padding: 7px 16px; border-radius: 99px; font-size: .85rem; cursor: pointer; transition: background var(--transicao); }
+    .btn-logout:hover { background: rgba(255,255,255,.2); }
+
+    .admin-body { display: flex; min-height: calc(100vh - 64px); }
+    .sidebar {
+      width: 220px; background: #fff; border-right: 1px solid var(--borda);
+      padding: 24px 0; flex-shrink: 0; position: sticky; top: 64px; height: calc(100vh - 64px); overflow-y: auto;
+    }
+    .sidebar-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 24px; font-size: .9rem; cursor: pointer;
+      transition: background var(--transicao), color var(--transicao);
+      color: var(--cinza-md); border-left: 3px solid transparent;
+    }
+    .sidebar-item.active { background: var(--azul-lt); color: var(--azul); border-left-color: var(--azul-md); font-weight: 500; }
+    .sidebar-item:hover:not(.active) { background: var(--cinza-f); color: var(--texto); }
+    .sidebar-sep { border: none; border-top: 1px solid var(--borda); margin: 12px 0; }
+
+    .content { flex: 1; padding: 32px; max-width: 900px; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .panel-title { font-size: 1.3rem; margin-bottom: 24px; color: var(--azul); }
+
+    /* ── CARDS ── */
+    .card { background: #fff; border-radius: var(--r); border: 1px solid var(--borda); padding: 28px; margin-bottom: 20px; }
+    .card-title { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--cinza-md); margin-bottom: 16px; }
+
+    /* ── INPUTS ── */
+    .field { margin-bottom: 16px; }
+    .field label { display: block; font-size: .85rem; font-weight: 500; margin-bottom: 6px; }
+    .field input, .field textarea, .field select {
+      width: 100%; padding: 10px 14px; border: 1px solid var(--borda);
+      border-radius: 8px; font-family: 'DM Sans',sans-serif; font-size: .93rem;
+      color: var(--texto); outline: none; transition: border-color var(--transicao);
+    }
+    .field input:focus, .field textarea:focus { border-color: var(--azul-md); }
+    .field textarea { height: 90px; resize: vertical; }
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* ── BOTÕES ── */
+    .btn { padding: 10px 22px; border-radius: 99px; font-size: .88rem; font-weight: 600; cursor: pointer; transition: var(--transicao); border: none; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-save  { background: var(--verde); color: #fff; }
+    .btn-save:hover  { background: var(--verde-md); }
+    .btn-add   { background: var(--azul); color: #fff; }
+    .btn-add:hover   { background: var(--azul-md); }
+    .btn-del   { background: #fee2e2; color: #dc2626; }
+    .btn-del:hover   { background: #fecaca; }
+    .btn-pub   { background: var(--verde); color: #fff; font-size: .95rem; padding: 12px 28px; }
+    .btn-pub:hover   { background: var(--verde-md); transform: translateY(-1px); }
+
+    /* ── LISTA ITENS ── */
+    .item-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 16px; }
+    .item-row {
+      background: var(--cinza-f); border: 1px solid var(--borda);
+      border-radius: 8px; padding: 14px 18px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .item-row-body { flex: 1; }
+    .item-row-body strong { display: block; font-size: .93rem; margin-bottom: 2px; }
+    .item-row-body span  { font-size: .82rem; color: var(--cinza-md); }
+    .item-actions { display: flex; gap: 8px; flex-shrink: 0; }
+    .btn-sm { padding: 5px 12px; border-radius: 6px; font-size: .78rem; font-weight: 600; cursor: pointer; border: none; transition: var(--transicao); }
+    .btn-sm.edit { background: var(--azul-lt); color: var(--azul-md); }
+    .btn-sm.edit:hover { background: #c7d2fa; }
+    .btn-sm.del  { background: #fee2e2; color: #dc2626; }
+    .btn-sm.del:hover  { background: #fecaca; }
+
+    /* ── IMPACTO ── */
+    .impacto-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .impacto-item { background: var(--cinza-f); border-radius: 8px; padding: 16px; }
+    .impacto-item label { display: block; font-size: .78rem; color: var(--cinza-md); margin-bottom: 4px; text-transform: uppercase; letter-spacing: .06em; }
+    .impacto-item input { width: 100%; padding: 8px 10px; border: 1px solid var(--borda); border-radius: 6px; font-size: .93rem; outline: none; }
+    .impacto-item input:focus { border-color: var(--azul-md); }
+
+    /* ── MODAL ── */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.45); z-index: 200; display: none; align-items: center; justify-content: center; }
+    .modal-overlay.open { display: flex; }
+    .modal { background: #fff; border-radius: 12px; padding: 32px; width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto; }
+    .modal h3 { margin-bottom: 20px; color: var(--azul); }
+    .modal-btns { display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed; bottom: 28px; right: 28px; z-index: 300;
+      background: var(--verde); color: #fff;
+      padding: 12px 20px; border-radius: 8px; font-size: .88rem; font-weight: 500;
+      box-shadow: 0 4px 20px rgba(0,0,0,.2);
+      transform: translateY(80px); opacity: 0;
+      transition: transform .3s ease, opacity .3s ease;
+    }
+    .toast.show { transform: translateY(0); opacity: 1; }
+
+    /* ── PUBLICAR ── */
+    .publish-box { background: linear-gradient(135deg,var(--azul),var(--azul-md)); border-radius: var(--r); padding: 28px; color: #fff; }
+    .publish-box h3 { margin-bottom: 8px; }
+    .publish-box p  { opacity: .75; font-size: .9rem; margin-bottom: 20px; }
+    .export-preview { background: #111; color: #4ade80; border-radius: 8px; padding: 16px; font-family: monospace; font-size: .78rem; margin-top: 16px; max-height: 180px; overflow-y: auto; }
+
+    @media(max-width:640px){
+      .sidebar { display: none; }
+      .field-row { grid-template-columns: 1fr; }
+      .impacto-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">🌱 Codel Admin</div>
+    <div class="login-sub">Painel de gerenciamento do site</div>
+    <input type="text"     id="login-user" placeholder="Usuário" autocomplete="username" />
+    <input type="password" id="login-pass" placeholder="Senha"   autocomplete="current-password" onkeydown="if(event.key==='Enter')fazerLogin()" />
+    <button class="btn-login" onclick="fazerLogin()">Entrar</button>
+    <div class="login-error" id="login-error">Usuário ou senha incorretos.</div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin-screen">
+  <header class="admin-header">
+    <h1>🌱 Codel Reciclagem — Painel Admin</h1>
+    <div style="display:flex;gap:12px;align-items:center">
+      <span class="badge" id="saved-at"></span>
+      <button class="btn-logout" onclick="logout()">Sair</button>
+    </div>
+  </header>
+  <div class="admin-body">
+    <aside class="sidebar">
+      <div class="sidebar-item active" onclick="showPanel('empresa')">🏢 Empresa</div>
+      <div class="sidebar-item" onclick="showPanel('impacto')">📊 Impacto</div>
+      <hr class="sidebar-sep" />
+      <div class="sidebar-item" onclick="showPanel('servicos')">⚙️ Serviços</div>
+      <div class="sidebar-item" onclick="showPanel('processo')">🔄 Processo</div>
+      <div class="sidebar-item" onclick="showPanel('pontos')">📍 Pontos de Coleta</div>
+      <div class="sidebar-item" onclick="showPanel('faq')">❓ FAQ</div>
+      <hr class="sidebar-sep" />
+      <div class="sidebar-item" onclick="showPanel('publicar')">🚀 Publicar</div>
+    </aside>
+
+    <main class="content">
+
+      <!-- EMPRESA -->
+      <div class="panel active" id="panel-empresa">
+        <div class="panel-title">🏢 Informações da Empresa</div>
+        <div class="card">
+          <div class="card-title">Dados gerais</div>
+          <div class="field-row">
+            <div class="field"><label>Nome da empresa</label><input id="emp-nome" /></div>
+            <div class="field"><label>Slogan</label><input id="emp-slogan" /></div>
+          </div>
+          <div class="field"><label>Descrição</label><textarea id="emp-desc"></textarea></div>
+          <div class="field-row">
+            <div class="field"><label>WhatsApp (apenas números, com DDI)</label><input id="emp-wpp" placeholder="5534999999999" /></div>
+            <div class="field"><label>Telefone (exibição)</label><input id="emp-tel" placeholder="(34) 9 9999-9999" /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>E-mail</label><input id="emp-email" /></div>
+            <div class="field"><label>Endereço / Cidade</label><input id="emp-end" /></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label>Instagram (URL completa)</label><input id="emp-insta" /></div>
+            <div class="field"><label>Facebook (URL completa)</label><input id="emp-fb" /></div>
+          </div>
+          <button class="btn btn-save" onclick="salvarSecao('empresa')">💾 Salvar informações</button>
+        </div>
+      </div>
+
+      <!-- IMPACTO -->
+      <div class="panel" id="panel-impacto">
+        <div class="panel-title">📊 Números de Impacto</div>
+        <div class="card">
+          <div class="card-title">Esses números aparecem no destaque da página inicial</div>
+          <div class="impacto-grid" id="impacto-grid"></div>
+          <br />
+          <button class="btn btn-save" onclick="salvarSecao('impacto')">💾 Salvar impacto</button>
+        </div>
+      </div>
+
+      <!-- SERVIÇOS -->
+      <div class="panel" id="panel-servicos">
+        <div class="panel-title">⚙️ Serviços</div>
+        <div class="card">
+          <div class="item-list" id="servicos-list"></div>
+          <button class="btn btn-add" onclick="abrirModal('servico')">+ Adicionar serviço</button>
+        </div>
+      </div>
+
+      <!-- PROCESSO -->
+      <div class="panel" id="panel-processo">
+        <div class="panel-title">🔄 Etapas do Processo</div>
+        <div class="card">
+          <div class="item-list" id="processo-list"></div>
+          <button class="btn btn-add" onclick="abrirModal('processo')">+ Adicionar etapa</button>
+        </div>
+      </div>
+
+      <!-- PONTOS -->
+      <div class="panel" id="panel-pontos">
+        <div class="panel-title">📍 Pontos de Coleta</div>
+        <div class="card">
+          <div class="item-list" id="pontos-list"></div>
+          <button class="btn btn-add" onclick="abrirModal('ponto')">+ Adicionar ponto</button>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="panel" id="panel-faq">
+        <div class="panel-title">❓ FAQ</div>
+        <div class="card">
+          <div class="item-list" id="faq-list"></div>
+          <button class="btn btn-add" onclick="abrirModal('faq')">+ Adicionar pergunta</button>
+        </div>
+      </div>
+
+      <!-- PUBLICAR -->
+      <div class="panel" id="panel-publicar">
+        <div class="panel-title">🚀 Publicar Alterações</div>
+        <div class="publish-box">
+          <h3>Gerar arquivo content.json</h3>
+          <p>Clique no botão abaixo para baixar o arquivo atualizado e substituir no servidor da Hostinger.</p>
+          <button class="btn btn-pub" onclick="baixarJSON()">⬇️ Baixar content.json</button>
+          <div class="export-preview" id="json-preview">// O conteúdo do arquivo aparecerá aqui...</div>
+        </div>
+        <br />
+        <div class="card">
+          <div class="card-title">Como publicar</div>
+          <ol style="padding-left:20px;line-height:2;font-size:.9rem;color:#4a5060">
+            <li>Clique em <strong>"Baixar content.json"</strong> acima.</li>
+            <li>Acesse o <strong>Gerenciador de Arquivos</strong> no painel da Hostinger.</li>
+            <li>Navegue até a pasta <strong>public_html/data/</strong>.</li>
+            <li>Faça o <strong>upload</strong> do arquivo baixado, substituindo o existente.</li>
+            <li>As alterações aparecerão no site em instantes. ✅</li>
+          </ol>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+<!-- MODAL GENÉRICO -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <h3 id="modal-title">Adicionar item</h3>
+    <div id="modal-fields"></div>
+    <div class="modal-btns">
+      <button class="btn btn-del" onclick="fecharModal()">Cancelar</button>
+      <button class="btn btn-save" onclick="salvarModal()">💾 Salvar</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">✅ Salvo com sucesso!</div>
+
+<script>
+// ── AUTENTICAÇÃO (altere a senha aqui!) ──────────────────────────
+const CREDENCIAIS = { usuario: 'admin', senha: 'codel2025' };
+
+function fazerLogin() {
+  const u = document.getElementById('login-user').value;
+  const p = document.getElementById('login-pass').value;
+  if (u === CREDENCIAIS.usuario && p === CREDENCIAIS.senha) {
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('admin-screen').style.display = 'block';
+    carregarDados();
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+  }
+}
+
+function logout() {
+  document.getElementById('admin-screen').style.display = 'none';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('login-user').value = '';
+  document.getElementById('login-pass').value = '';
+}
+
+// ── DADOS ─────────────────────────────────────────────────────────
+let dados = {};
+
+async function carregarDados() {
+  try {
+    const res = await fetch('data/content.json?v=' + Date.now());
+    dados = await res.json();
+    renderizarTudo();
+  } catch(e) {
+    mostrarToast('⚠️ Erro ao carregar dados. Usando padrão.', '#dc2626');
+    dados = { empresa:{}, impacto:[], servicos:[], processo:[], pontos_coleta:[], faq:[] };
+    renderizarTudo();
+  }
+}
+
+// ── RENDERIZAR ────────────────────────────────────────────────────
+function renderizarTudo() {
+  renderEmpresa(); renderImpacto(); renderLista();
+}
+
+function renderEmpresa() {
+  const e = dados.empresa || {};
+  ['nome','slogan','wpp','tel','email','end','insta','fb'].forEach(k => {
+    const map = {nome:'nome',slogan:'slogan',wpp:'whatsapp',tel:'telefone',email:'email',end:'endereco',insta:'instagram',fb:'facebook'};
+    const el = document.getElementById('emp-'+k);
+    if(el) el.value = e[map[k]] || '';
+  });
+}
+
+function renderImpacto() {
+  const grid = document.getElementById('impacto-grid');
+  grid.innerHTML = (dados.impacto||[]).map((it,i) => `
+    <div class="impacto-item">
+      <label>Número</label>
+      <input id="imp-num-${i}" value="${it.numero}" />
+      <br/><br/>
+      <label>Sufixo</label>
+      <input id="imp-suf-${i}" value="${it.sufixo}" style="width:60px;margin-right:8px" />
+      <br/><br/>
+      <label>Legenda</label>
+      <input id="imp-lab-${i}" value="${it.label}" />
+    </div>
+  `).join('');
+}
+
+function renderLista() {
+  renderServicos(); renderProcesso(); renderPontos(); renderFaq();
+}
+
+function renderServicos() {
+  document.getElementById('servicos-list').innerHTML = (dados.servicos||[]).map((s,i) => `
+    <div class="item-row">
+      <div class="item-row-body"><strong>${s.icone} ${s.titulo}</strong><span>${s.descricao.substring(0,80)}...</span></div>
+      <div class="item-actions">
+        <button class="btn-sm edit" onclick="editarItem('servico',${i})">Editar</button>
+        <button class="btn-sm del"  onclick="deletarItem('servicos',${i})">Excluir</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderProcesso() {
+  document.getElementById('processo-list').innerHTML = (dados.processo||[]).map((p,i) => `
+    <div class="item-row">
+      <div class="item-row-body"><strong>${p.passo} — ${p.titulo}</strong><span>${p.descricao.substring(0,80)}...</span></div>
+      <div class="item-actions">
+        <button class="btn-sm edit" onclick="editarItem('processo',${i})">Editar</button>
+        <button class="btn-sm del"  onclick="deletarItem('processo',${i})">Excluir</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderPontos() {
+  document.getElementById('pontos-list').innerHTML = (dados.pontos_coleta||[]).map((p,i) => `
+    <div class="item-row">
+      <div class="item-row-body"><strong>📍 ${p.nome}</strong><span>${p.endereco}</span></div>
+      <div class="item-actions">
+        <button class="btn-sm edit" onclick="editarItem('ponto',${i})">Editar</button>
+        <button class="btn-sm del"  onclick="deletarItem('pontos_coleta',${i})">Excluir</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderFaq() {
+  document.getElementById('faq-list').innerHTML = (dados.faq||[]).map((f,i) => `
+    <div class="item-row">
+      <div class="item-row-body"><strong>${f.pergunta}</strong><span>${f.resposta.substring(0,80)}...</span></div>
+      <div class="item-actions">
+        <button class="btn-sm edit" onclick="editarItem('faq',${i})">Editar</button>
+        <button class="btn-sm del"  onclick="deletarItem('faq',${i})">Excluir</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ── SALVAR SEÇÃO ──────────────────────────────────────────────────
+function salvarSecao(secao) {
+  if (secao === 'empresa') {
+    dados.empresa = {
+      nome:      document.getElementById('emp-nome').value,
+      slogan:    document.getElementById('emp-slogan').value,
+      descricao: document.getElementById('emp-desc').value,
+      whatsapp:  document.getElementById('emp-wpp').value,
+      telefone:  document.getElementById('emp-tel').value,
+      email:     document.getElementById('emp-email').value,
+      endereco:  document.getElementById('emp-end').value,
+      instagram: document.getElementById('emp-insta').value,
+      facebook:  document.getElementById('emp-fb').value,
+    };
+  }
+  if (secao === 'impacto') {
+    dados.impacto = (dados.impacto||[]).map((_,i) => ({
+      numero: document.getElementById(`imp-num-${i}`).value,
+      sufixo: document.getElementById(`imp-suf-${i}`).value,
+      label:  document.getElementById(`imp-lab-${i}`).value,
+    }));
+  }
+  atualizarPreview();
+  mostrarToast('✅ Salvo! Vá em Publicar para aplicar no site.');
+  document.getElementById('saved-at').textContent = 'Salvo às ' + new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+}
+
+// ── MODAL ─────────────────────────────────────────────────────────
+let modalTipo = '', modalIdx = -1;
+
+const CAMPOS = {
+  servico:  [{k:'icone',l:'Ícone (emoji)'},{k:'titulo',l:'Título'},{k:'descricao',l:'Descrição',area:true}],
+  processo: [{k:'passo',l:'Passo (ex: 01)'},{k:'titulo',l:'Título'},{k:'descricao',l:'Descrição',area:true}],
+  ponto:    [{k:'nome',l:'Nome do ponto'},{k:'endereco',l:'Endereço'},{k:'horario',l:'Horário'}],
+  faq:      [{k:'pergunta',l:'Pergunta'},{k:'resposta',l:'Resposta',area:true}],
+};
+
+const ARRAYS = { servico:'servicos', processo:'processo', ponto:'pontos_coleta', faq:'faq' };
+
+function abrirModal(tipo, obj={}) {
+  modalTipo = tipo; modalIdx = -1;
+  document.getElementById('modal-title').textContent = 'Adicionar ' + tipo;
+  const campos = CAMPOS[tipo];
+  document.getElementById('modal-fields').innerHTML = campos.map(c =>
+    `<div class="field"><label>${c.l}</label>${
+      c.area ? `<textarea id="mf-${c.k}">${obj[c.k]||''}</textarea>`
+             : `<input id="mf-${c.k}" value="${obj[c.k]||''}" />`
+    }</div>`
+  ).join('');
+  document.getElementById('modal').classList.add('open');
+}
+
+function editarItem(tipo, idx) {
+  const arr = dados[ARRAYS[tipo]] || [];
+  modalTipo = tipo; modalIdx = idx;
+  const obj = arr[idx];
+  document.getElementById('modal-title').textContent = 'Editar ' + tipo;
+  const campos = CAMPOS[tipo];
+  document.getElementById('modal-fields').innerHTML = campos.map(c =>
+    `<div class="field"><label>${c.l}</label>${
+      c.area ? `<textarea id="mf-${c.k}">${obj[c.k]||''}</textarea>`
+             : `<input id="mf-${c.k}" value="${obj[c.k]||''}" />`
+    }</div>`
+  ).join('');
+  document.getElementById('modal').classList.add('open');
+}
+
+function fecharModal() {
+  document.getElementById('modal').classList.remove('open');
+}
+
+function salvarModal() {
+  const campos = CAMPOS[modalTipo];
+  const obj = {};
+  campos.forEach(c => { obj[c.k] = document.getElementById('mf-'+c.k).value; });
+  const arr = dados[ARRAYS[modalTipo]] = dados[ARRAYS[modalTipo]] || [];
+  if (modalIdx >= 0) arr[modalIdx] = obj; else arr.push(obj);
+  renderLista();
+  fecharModal();
+  atualizarPreview();
+  mostrarToast('✅ Item salvo! Publique para aplicar no site.');
+}
+
+function deletarItem(arr, idx) {
+  if(!confirm('Deseja excluir este item?')) return;
+  dados[arr].splice(idx, 1);
+  renderLista();
+  atualizarPreview();
+  mostrarToast('🗑️ Item removido.');
+}
+
+// ── PUBLICAR ──────────────────────────────────────────────────────
+function atualizarPreview() {
+  document.getElementById('json-preview').textContent = JSON.stringify(dados, null, 2).substring(0, 800) + '\n...';
+}
+
+function baixarJSON() {
+  atualizarPreview();
+  const blob = new Blob([JSON.stringify(dados, null, 2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'content.json';
+  a.click();
+  mostrarToast('⬇️ Arquivo baixado! Envie para a Hostinger.');
+}
+
+// ── PAINEL ────────────────────────────────────────────────────────
+function showPanel(id) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+  if(id === 'publicar') atualizarPreview();
+}
+
+// ── TOAST ─────────────────────────────────────────────────────────
+function mostrarToast(msg, bg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.background = bg || 'var(--verde)';
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+</script>
+</body>
+</html>
