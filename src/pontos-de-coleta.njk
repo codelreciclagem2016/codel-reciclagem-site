@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 titulo: "Onde descartar lixo eletrônico, pilhas e baterias em Uberlândia | Codel"
-descricao: "Onde descartar eletrônicos, pilhas, baterias e lâmpadas em Uberlândia: a sede da Codel e 7 pontos de entrega parceiros. Endereços, telefones e horários."
+descricao: "Onde descartar eletrônicos, pilhas, baterias e lâmpadas em Uberlândia: a sede da Codel e pontos de entrega parceiros. Endereços, telefones e horários."
 whatsMensagem: "Olá! Quero descartar alguns eletrônicos. Pode me ajudar?"
 ---
 {%- from "icones.njk" import icone -%}
@@ -49,7 +49,7 @@ whatsMensagem: "Olá! Quero descartar alguns eletrônicos. Pode me ajudar?"
 <section class="secao secao-azul-claro" id="pontos">
   <div class="wrap">
     <p class="sobretitulo">Pontos parceiros</p>
-    <h2>Mais 7 lugares para deixar seus eletrônicos</h2>
+    <h2>Mais {{ (pontos.lista | length) - 1 }} lugares para deixar seus eletrônicos</h2>
     <p class="aviso">{{ icone("risco") }} <span>{{ pontos.aviso }}</span></p>
     <ul class="pontos">
       {%- for p in pontos.lista %}{% if not p.sede %}

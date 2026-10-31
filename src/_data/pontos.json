@@ -10,12 +10,47 @@
       "telefone": "(34) 99672-3880",
       "observacao": "Recebe todos os tipos, inclusive lâmpadas, pilhas, baterias e TV de tubo."
     },
-    { "nome": "Abrasel", "endereco": "Rua Olegário Maciel, 255 – Box 5 (Mercado Municipal)", "bairro": "Centro", "cep": "38.400-084", "telefone": "(34) 99869-0133" },
-    { "nome": "Associação do Câncer", "endereco": "Rua Artur Bernardes, 630", "bairro": "Martins", "cep": "38.411-106", "telefone": "(34) 3235-3294" },
-    { "nome": "Estação Vida", "endereco": "Rua Horácio Ribeiro de Almeida, 230", "bairro": "Shopping Park", "cep": "", "telefone": "(34) 3224-8731" },
-    { "nome": "Instituto Ipê Cultural", "endereco": "Rua Tupaciguara, 600", "bairro": "Nossa Senhora Aparecida", "cep": "38.400-618", "telefone": "(34) 3214-5447" },
-    { "nome": "Paróquia Santa Mônica", "endereco": "Praça Américo Ferreira de Abreu, 380", "bairro": "Santa Mônica", "cep": "38.408-166", "telefone": "(34) 3236-9141" },
-    { "nome": "Polícia Civil", "endereco": "Av. Getúlio Vargas, 2323", "bairro": "Tubalina", "cep": "38.412-066", "telefone": "" },
-    { "nome": "Santuário Nossa Senhora Aparecida", "endereco": "Praça Nossa Senhora Aparecida, 100", "bairro": "Nossa Senhora Aparecida", "cep": "38.400-726", "telefone": "(34) 3236-0468" }
+    {
+      "nome": "Abrasel",
+      "endereco": "Rua Olegário Maciel, 255 – Box 5 (Mercado Municipal)",
+      "bairro": "Centro",
+      "cep": "38.400-084",
+      "telefone": "(34) 99869-0133"
+    },
+    {
+      "nome": "Associação do Câncer",
+      "endereco": "Rua Artur Bernardes, 630",
+      "bairro": "Martins",
+      "cep": "38.411-106",
+      "telefone": "(34) 3235-3294"
+    },
+    {
+      "nome": "Estação Vida",
+      "endereco": "Rua Horácio Ribeiro de Almeida, 230",
+      "bairro": "Shopping Park",
+      "cep": "",
+      "telefone": "(34) 3224-8731"
+    },
+    {
+      "nome": "Instituto Ipê Cultural",
+      "endereco": "Rua Tupaciguara, 600",
+      "bairro": "Nossa Senhora Aparecida",
+      "cep": "38.400-618",
+      "telefone": "(34) 3214-5447"
+    },
+    {
+      "nome": "Paróquia Santa Mônica",
+      "endereco": "Praça Américo Ferreira de Abreu, 380",
+      "bairro": "Santa Mônica",
+      "cep": "38.408-166",
+      "telefone": "(34) 3236-9141"
+    },
+    {
+      "nome": "Polícia Civil",
+      "endereco": "Av. Getúlio Vargas, 2323",
+      "bairro": "Tubalina",
+      "cep": "38.412-066",
+      "telefone": ""
+    }
   ]
 }

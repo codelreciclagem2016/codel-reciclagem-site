@@ -74,7 +74,7 @@ descricao: "Descarte de eletrônicos, pilhas, baterias e lâmpadas em Uberlândi
       <h2>Coleta de lixo eletrônico para empresas</h2>
       <ul class="lista-check">
         <li>{{ icone("caminhao") }} Coleta no local, em Uberlândia</li>
-        <li>{{ icone("documento") }} Coleta com MTR e Certificado de Destinação Final (CDF)</li>
+        <li>{{ icone("documento") }} Coleta com MTR e Certificado de Destinação Final (CDF). Não sabe emitir o MTR? A gente orienta.</li>
         <li>{{ icone("escudo") }} Destruição de HDs e mídias para proteger os dados da empresa</li>
         <li>{{ icone("reciclar") }} Relatório de descaracterização e rastreabilidade por lote</li>
       </ul>
@@ -103,8 +103,8 @@ descricao: "Descarte de eletrônicos, pilhas, baterias e lâmpadas em Uberlândi
       </a>
       <a class="cartao" href="/pontos-de-coleta/">
         {{ icone("mapa") }}
-        <h3>8 pontos de entrega</h3>
-        <p>Nossa sede e 7 parceiros espalhados por Uberlândia.</p>
+        <h3>{{ pontos.lista | length }} pontos de entrega</h3>
+        <p>Nossa sede e {{ (pontos.lista | length) - 1 }} parceiros espalhados por Uberlândia.</p>
       </a>
     </div>
   </div>
