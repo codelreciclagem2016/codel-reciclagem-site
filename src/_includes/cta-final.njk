@@ -1,11 +1,11 @@
 {%- from "icones.njk" import icone -%}
-<section class="cta-final">
+<section class="cta-final secao-verde">
   <div class="wrap">
     <h2>{{ ctaTitulo or "Ficou alguma dúvida?" }}</h2>
     <p>{{ ctaTexto or "Fale com a nossa equipe pelo WhatsApp. Respondemos em horário comercial." }}</p>
     <div class="botoes">
-      <a class="btn btn-whats" href="{{ (whatsMensagem or empresa.whatsappMensagem) | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} Chamar no WhatsApp</a>
-      <a class="btn btn-claro" href="tel:{{ empresa.telefoneE164 }}" data-evento="clique_telefone">{{ icone("telefone") }} {{ empresa.telefone }}</a>
+      <a class="btn btn-branco" href="{{ (whatsMensagem or empresa.whatsappMensagem) | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} Chamar no WhatsApp</a>
+      <a class="btn btn-contorno" href="tel:{{ empresa.telefoneE164 }}" data-evento="clique_telefone">{{ icone("telefone") }} {{ empresa.telefone }}</a>
     </div>
   </div>
 </section>

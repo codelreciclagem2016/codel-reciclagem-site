@@ -1,19 +1,62 @@
 {
   "recebe": [
-    { "icone": "computador", "nome": "Computadores e notebooks" },
-    { "icone": "celular", "nome": "Celulares e tablets" },
-    { "icone": "impressora", "nome": "Impressoras" },
-    { "icone": "placa", "nome": "Placas e componentes" },
-    { "icone": "cabo", "nome": "Cabos e carregadores" },
-    { "icone": "eletrodomestico", "nome": "Eletrodomésticos" },
-    { "icone": "tv", "nome": "TVs, som e videogame" },
-    { "icone": "pilha", "nome": "Pilhas" },
-    { "icone": "bateria", "nome": "Baterias" },
-    { "icone": "lampada", "nome": "Lâmpadas" },
-    { "icone": "cartucho", "nome": "Cartuchos de tinta e toner" }
+    {
+      "icone": "computador",
+      "nome": "Computadores e notebooks"
+    },
+    {
+      "icone": "celular",
+      "nome": "Celulares e tablets"
+    },
+    {
+      "icone": "impressora",
+      "nome": "Impressoras"
+    },
+    {
+      "icone": "placa",
+      "nome": "Placas e componentes"
+    },
+    {
+      "icone": "cabo",
+      "nome": "Cabos e carregadores"
+    },
+    {
+      "icone": "eletrodomestico",
+      "nome": "Eletrodomésticos"
+    },
+    {
+      "icone": "ferramenta",
+      "nome": "Ferramentas elétricas"
+    },
+    {
+      "icone": "tv",
+      "nome": "TVs, som e videogame"
+    },
+    {
+      "icone": "pilha",
+      "nome": "Pilhas"
+    },
+    {
+      "icone": "bateria",
+      "nome": "Baterias"
+    },
+    {
+      "icone": "lampada",
+      "nome": "Lâmpadas"
+    },
+    {
+      "icone": "cartucho",
+      "nome": "Cartuchos de tinta e toner"
+    }
   ],
   "naoRecebe": [
-    { "icone": "lata", "nome": "Latas de metal" },
-    { "icone": "risco", "nome": "Material com contaminação biológica, química ou radioativa" }
+    {
+      "icone": "lata",
+      "nome": "Latas de metal"
+    },
+    {
+      "icone": "risco",
+      "nome": "Material com contaminação biológica, química ou radioativa"
+    }
   ]
 }

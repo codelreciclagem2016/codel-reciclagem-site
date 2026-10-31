@@ -34,8 +34,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-<link rel="preload" href="/assets/fonts/alegreya-sans.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/alegreya-sans-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/plus-jakarta-sans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/css/style.css?v={{ build.versao }}">
 <script type="application/ld+json">
 {
@@ -59,8 +58,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
   "areaServed": "Uberlândia",
   "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:20", "closes": "17:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:00" }
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:20", "closes": "17:00" }
   ],
   "sameAs": [{{ e.youtube | dump | safe }}]
 }
@@ -78,7 +76,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <header class="topo">
   <div class="faixa-info">
     <div class="wrap">
-      <span>{{ icone("relogio", "ico ico-sm") }} Seg–sex 07:20–17:00 · Sáb 08:00–12:00</span>
+      <span>Coleta e descarte de eletrônicos em Uberlândia</span>
       <a href="tel:{{ e.telefoneE164 }}" data-evento="clique_telefone">{{ icone("telefone", "ico ico-sm") }} {{ e.telefone }}</a>
     </div>
   </div>
@@ -121,8 +119,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div>
       <h2>Horário</h2>
       <ul class="lista-horario">
-        {%- for h in e.horario %}<li><span>{{ h.dias }}</span> <span>{{ h.horas }}</span></li>{% endfor %}
+        {%- for h in e.horario %}<li><span>{{ h.dias }}</span> <span>{{ h.horas }}{% if h.nota %}*{% endif %}</span></li>{% endfor %}
       </ul>
+      {%- for h in e.horario %}{% if h.nota %}<p class="pequeno nota-horario">* {{ h.nota }}</p>{% endif %}{% endfor %}
       <h2>Páginas</h2>
       <ul class="lista-links">
         {%- for item in navegacao %}<li><a href="{{ item.url }}">{{ item.texto }}</a></li>{% endfor %}

@@ -24,26 +24,29 @@ whatsMensagem: "Olá! Quero descartar alguns eletrônicos. Pode me ajudar?"
 </section>
 
 <section class="secao">
-  <div class="wrap duas-colunas sede">
+  <div class="wrap duas-colunas sede alinhado-topo">
     <div>
       <p class="sobretitulo">Recebe tudo</p>
       <h2>Sede da Codel</h2>
       <p class="destaque">A Codel é ponto de entrega oficial de <strong>pilhas</strong> (Green Eletron) e de <strong>lâmpadas</strong> (Reciclus), e recebe todos os tipos de eletrônicos.</p>
       <ul class="lista-contato escuro">
         <li>{{ icone("mapa") }} <span>{{ e.endereco.rua }} – {{ e.endereco.bairro }}<br>{{ e.endereco.cidade }} – {{ e.endereco.uf }} · CEP {{ e.endereco.cep }}</span></li>
-        <li>{{ icone("relogio") }} <span>{% for h in e.horario %}{% if h.horas != "Fechado" %}{{ h.dias }}: {{ h.horas }}<br>{% endif %}{% endfor %}</span></li>
+        <li>{{ icone("relogio") }} <span>{% for h in e.horario %}{% if h.horas != "Fechado" %}{{ h.dias }}: {{ h.horas }}{% if h.nota %}<br><small>{{ h.nota }}</small>{% endif %}<br>{% endif %}{% endfor %}</span></li>
         <li>{{ icone("telefone") }} <a href="tel:{{ e.telefoneE164 }}" data-evento="clique_telefone">{{ e.telefone }}</a></li>
       </ul>
       <p class="pequeno">Para a maioria dos itens, o descarte por pessoa física é gratuito. Alguns itens, como TV e monitor de tubo, podem ter custo — confirme antes pelo WhatsApp.</p>
       <a class="btn btn-claro" href="{{ (e.endereco.rua + ', ' + e.endereco.bairro + ', ' + e.endereco.cidade + ' - MG') | mapsLink }}" target="_blank" rel="noopener">{{ icone("mapa") }} Como chegar</a>
     </div>
+    <div class="sede-midia">
+      <figure class="foto-lateral"><img src="/assets/img/fachada.webp" srcset="/assets/img/fachada-640.webp 640w, /assets/img/fachada.webp 1200w" sizes="(max-width: 900px) 100vw, 45vw" alt="Fachada da Codel na Rua Ituiutaba, 470" width="1200" height="628" loading="lazy"><figcaption>É aqui: Rua Ituiutaba, 470</figcaption></figure>
     <div class="mapa">
       <iframe title="Mapa da sede da Codel" src="https://maps.google.com/maps?q={{ ('Codel, ' + e.endereco.rua + ', ' + e.endereco.cidade + ' - MG') | urlencode }}&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     </div>
   </div>
 </section>
 
-<section class="secao secao-cinza" id="pontos">
+<section class="secao secao-azul-claro" id="pontos">
   <div class="wrap">
     <p class="sobretitulo">Pontos parceiros</p>
     <h2>Mais 7 lugares para deixar seus eletrônicos</h2>
