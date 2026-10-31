@@ -1,0 +1,68 @@
+---
+layout: base.njk
+titulo: "Onde descartar lixo eletrônico, pilhas e baterias em Uberlândia | Codel"
+descricao: "Onde descartar eletrônicos, pilhas, baterias e lâmpadas em Uberlândia: a sede da Codel e 7 pontos de entrega parceiros. Endereços, telefones e horários."
+whatsMensagem: "Olá! Quero descartar alguns eletrônicos. Pode me ajudar?"
+---
+{%- from "icones.njk" import icone -%}
+{%- set e = empresa -%}
+<section class="hero hero-interna">
+  <div class="wrap hero-grade">
+    <div class="hero-texto">
+      <p class="sobretitulo">Para você</p>
+      <h1>Onde descartar pilhas, baterias e eletrônicos em Uberlândia</h1>
+      <p class="lead">Traga seu eletrônico velho até a Codel ou deixe em um dos pontos de entrega parceiros. Nós damos o destino certo.</p>
+      <div class="botoes">
+        <a class="btn btn-primario" href="#pontos">{{ icone("mapa") }} Ver os pontos</a>
+        <a class="btn btn-whats" href="{{ whatsMensagem | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} Tirar dúvida</a>
+      </div>
+    </div>
+    <figure class="hero-foto">
+      <img src="/assets/img/baterias.webp" srcset="/assets/img/baterias-640.webp 640w, /assets/img/baterias.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" alt="Recipiente com pilhas e baterias recebidas para reciclagem" width="1200" height="628" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap duas-colunas sede">
+    <div>
+      <p class="sobretitulo">Recebe tudo</p>
+      <h2>Sede da Codel</h2>
+      <p class="destaque">A Codel é ponto de entrega oficial de <strong>pilhas</strong> (Green Eletron) e de <strong>lâmpadas</strong> (Reciclus), e recebe todos os tipos de eletrônicos.</p>
+      <ul class="lista-contato escuro">
+        <li>{{ icone("mapa") }} <span>{{ e.endereco.rua }} – {{ e.endereco.bairro }}<br>{{ e.endereco.cidade }} – {{ e.endereco.uf }} · CEP {{ e.endereco.cep }}</span></li>
+        <li>{{ icone("relogio") }} <span>{% for h in e.horario %}{% if h.horas != "Fechado" %}{{ h.dias }}: {{ h.horas }}<br>{% endif %}{% endfor %}</span></li>
+        <li>{{ icone("telefone") }} <a href="tel:{{ e.telefoneE164 }}" data-evento="clique_telefone">{{ e.telefone }}</a></li>
+      </ul>
+      <p class="pequeno">Para a maioria dos itens, o descarte por pessoa física é gratuito. Alguns itens, como TV e monitor de tubo, podem ter custo — confirme antes pelo WhatsApp.</p>
+      <a class="btn btn-claro" href="{{ (e.endereco.rua + ', ' + e.endereco.bairro + ', ' + e.endereco.cidade + ' - MG') | mapsLink }}" target="_blank" rel="noopener">{{ icone("mapa") }} Como chegar</a>
+    </div>
+    <div class="mapa">
+      <iframe title="Mapa da sede da Codel" src="https://maps.google.com/maps?q={{ ('Codel, ' + e.endereco.rua + ', ' + e.endereco.cidade + ' - MG') | urlencode }}&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="secao secao-cinza" id="pontos">
+  <div class="wrap">
+    <p class="sobretitulo">Pontos parceiros</p>
+    <h2>Mais 7 lugares para deixar seus eletrônicos</h2>
+    <p class="aviso">{{ icone("risco") }} <span>{{ pontos.aviso }}</span></p>
+    <ul class="pontos">
+      {%- for p in pontos.lista %}{% if not p.sede %}
+      <li class="ponto">
+        <h3>{{ p.nome }}</h3>
+        <p>{{ p.endereco }}<br>{{ p.bairro }}{% if p.cep %} · CEP {{ p.cep }}{% endif %}</p>
+        {%- if p.telefone %}<p><a href="tel:+55{{ p.telefone | digitos }}">{{ icone("telefone", "ico ico-sm") }} {{ p.telefone }}</a></p>{% endif %}
+        <a class="link-seta" href="{{ (p.nome + ', ' + p.endereco + ', ' + p.bairro + ', Uberlândia - MG') | mapsLink }}" target="_blank" rel="noopener">Como chegar {{ icone("seta") }}</a>
+      </li>
+      {%- endif %}{% endfor %}
+    </ul>
+  </div>
+</section>
+
+{% include "materiais.njk" %}
+
+{% set ctaTitulo = "Tem muita coisa para descartar?" %}
+{% set ctaTexto = "Para grandes volumes ou empresas, fazemos a coleta no local. Fale com a gente." %}
+{% include "cta-final.njk" %}

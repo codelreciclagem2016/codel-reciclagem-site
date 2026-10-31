@@ -1,0 +1,63 @@
+---
+layout: base.njk
+titulo: "Como funciona a reciclagem de eletrônicos na Codel"
+descricao: "Recebimento, triagem, descaracterização, desmonte e destinação: veja o caminho do resíduo eletrônico na Codel, do reuso à reciclagem."
+---
+{%- from "icones.njk" import icone -%}
+<section class="hero hero-interna hero-simples">
+  <div class="wrap">
+    <p class="sobretitulo">Como funciona</p>
+    <h1>O caminho do seu eletrônico na Codel</h1>
+    <p class="lead">Tudo o que chega passa pela mesma triagem. A partir daí, segue um de dois caminhos: o <strong>reuso</strong>, quando o equipamento ainda funciona, ou a <strong>reciclagem</strong>.</p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap">
+    <h2>Etapas comuns</h2>
+    <ol class="passos">
+      <li><span class="num">1</span><h3>Recebimento</h3><p>Você traz o material até a Codel ou a um ponto de entrega, ou agenda uma coleta.</p></li>
+      <li><span class="num">2</span><h3>Triagem</h3><p>Separamos o que vai para reuso e o que vai para reciclagem.</p></li>
+      <li><span class="num">3</span><h3>Descaracterização</h3><p>Logotipos, selos e etiquetas são retirados e destruídos ou devolvidos ao cliente. Itens com dados, como HDs e cartões de memória, são destruídos quando necessário.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="secao secao-cinza">
+  <div class="wrap duas-colunas caminhos">
+    <div class="caixa">
+      <h2>{{ icone("computador") }} Reuso</h2>
+      <ol class="lista-numerada">
+        <li><strong>Teste de viabilidade:</strong> avaliamos se o equipamento ou a peça pode ser reaproveitado.</li>
+        <li><strong>Revisão e reparo:</strong> conferimos o funcionamento e consertamos quando preciso.</li>
+        <li><strong>Teste final e limpeza:</strong> validamos o funcionamento e preparamos para venda.</li>
+        <li><strong>Venda:</strong> o item volta ao mercado como remanufaturado, com garantia.</li>
+      </ol>
+    </div>
+    <div class="caixa">
+      <h2>{{ icone("reciclar") }} Reciclagem</h2>
+      <ol class="lista-numerada">
+        <li><strong>Desmonte:</strong> feito por pessoas treinadas, com ferramentas e EPIs adequados.</li>
+        <li><strong>Separação:</strong> metais (ferro, cobre, alumínio, inox), placas e plásticos são separados por tipo. Materiais contaminantes são isolados.</li>
+        <li><strong>Destinação:</strong> cada fração segue para recicladores e refinadores parceiros especializados.</li>
+      </ol>
+    </div>
+  </div>
+  <div class="wrap">
+    <p class="aviso">{{ icone("documento") }} <span>Empresas que precisam que o material vá obrigatoriamente para reciclagem devem avisar no pedido. Nesse caso, nenhum item é reaproveitado.</span></p>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap">
+    <h2>Linhas de equipamentos que recebemos</h2>
+    <div class="cartoes cartoes-4">
+      <div class="cartao"><h3>Linha branca</h3><p>Grandes eletrodomésticos: fogão, máquina de lavar, micro-ondas.</p></div>
+      <div class="cartao"><h3>Linha azul</h3><p>Pequenos eletrodomésticos e ferramentas: liquidificador, furadeira, ferro de passar.</p></div>
+      <div class="cartao"><h3>Linha verde</h3><p>Informática e telefonia: computador, notebook, servidor, impressora, celular, placas.</p></div>
+      <div class="cartao"><h3>Linha marrom</h3><p>Áudio e vídeo: TV, aparelho de som, videogame, home theater.</p></div>
+    </div>
+  </div>
+</section>
+
+{% include "cta-final.njk" %}

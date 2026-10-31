@@ -1,0 +1,91 @@
+---
+layout: base.njk
+titulo: "Coleta de lixo eletrônico para empresas em Uberlândia | Codel"
+descricao: "Coleta de eletrônicos da sua empresa em Uberlândia com MTR, certificado de destinação (CDF), destruição de dados e relatório de rastreabilidade. Sem quantidade mínima."
+whatsMensagem: "Olá! Sou de uma empresa e gostaria de um orçamento de coleta de eletrônicos."
+origemForm: "empresas"
+ctaTitulo: "Prefere conversar antes?"
+ctaTexto: "Chame no WhatsApp e mande fotos do material. Montamos o orçamento a partir delas."
+---
+{%- from "icones.njk" import icone -%}
+<section class="hero hero-interna">
+  <div class="wrap hero-grade">
+    <div class="hero-texto">
+      <p class="sobretitulo">Para empresas</p>
+      <h1>Coleta de lixo eletrônico para empresas, com MTR e certificado</h1>
+      <p class="lead">Coletamos computadores, celulares, impressoras e outros equipamentos da sua empresa em Uberlândia. Você recebe a documentação exigida por lei e a garantia de que os dados foram destruídos.</p>
+      <div class="botoes">
+        <a class="btn btn-primario" href="#orcamento">{{ icone("seta") }} Pedir orçamento</a>
+        <a class="btn btn-whats" href="{{ whatsMensagem | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} WhatsApp</a>
+      </div>
+    </div>
+    <figure class="hero-foto">
+      <img src="/assets/img/placas.webp" srcset="/assets/img/placas-640.webp 640w, /assets/img/placas.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" alt="Placas eletrônicas separadas em gaiolas para reciclagem" width="1200" height="628" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+{% include "confianca.njk" %}
+
+<section class="secao">
+  <div class="wrap">
+    <p class="sobretitulo">O caminho do seu resíduo</p>
+    <h2>Da coleta ao certificado</h2>
+    <ol class="trilha">
+      <li>{{ icone("caminhao") }}<h3>Coleta</h3><p>Buscamos o material na sua empresa, em Uberlândia. Não há quantidade mínima.</p></li>
+      <li>{{ icone("documento") }}<h3>MTR</h3><p>O transporte sai acompanhado do Manifesto de Transporte de Resíduos, emitido no sistema do órgão ambiental (em Minas Gerais, a FEAM).</p></li>
+      <li>{{ icone("escudo") }}<h3>Descaracterização</h3><p>HDs, SSDs e cartões de memória podem ser destruídos. Logotipos e etiquetas são retirados.</p></li>
+      <li>{{ icone("reciclar") }}<h3>Reciclagem</h3><p>Desmonte, triagem e envio das frações para recicladores e refinadores parceiros.</p></li>
+      <li>{{ icone("check") }}<h3>CDF</h3><p>O Certificado de Destinação Final é emitido no primeiro dia útil do mês seguinte à solicitação. Em casos urgentes, emitimos antes, mediante pedido.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="secao secao-cinza">
+  <div class="wrap duas-colunas">
+    <div>
+      <p class="sobretitulo">Segurança e conformidade</p>
+      <h2>Seus dados seguros no descarte de TI</h2>
+      <ul class="lista-check">
+        <li>{{ icone("escudo") }} <span><strong>Destruição de dados:</strong> discos rígidos, SSDs e cartões de memória destruídos conforme a necessidade da empresa.</span></li>
+        <li>{{ icone("documento") }} <span><strong>Rastreabilidade:</strong> código interno por lote e relatório de descaracterização e rastreabilidade.</span></li>
+        <li>{{ icone("check") }} <span><strong>Homologada</strong> pela ABREE e pela Circulare para processar eletroeletrônicos da logística reversa.</span></li>
+        <li>{{ icone("predio") }} <span><strong>Lei 12.305/2010:</strong> descarte de acordo com a Política Nacional de Resíduos Sólidos, com a documentação que comprova isso em fiscalizações e auditorias.</span></li>
+      </ul>
+      <p class="pequeno">Se o material da sua empresa não pode ser reaproveitado de forma alguma, avise no pedido: ele vai direto para a reciclagem.</p>
+    </div>
+    <figure class="foto-lateral">
+      <img src="/assets/img/tambores.webp" srcset="/assets/img/tambores-640.webp 640w, /assets/img/tambores.webp 1200w" sizes="(max-width: 900px) 100vw, 45vw" alt="Tambores identificados por tipo de material no galpão da Codel" width="1200" height="628" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="secao" id="orcamento">
+  <div class="wrap duas-colunas form-bloco">
+    <div>
+      <p class="sobretitulo">Orçamento</p>
+      <h2>Peça um orçamento de coleta</h2>
+      <p>O valor depende do tipo de material, da quantidade e do local. Conte o que precisa descartar e retornamos com a proposta.</p>
+      <ul class="lista-simples">
+        <li>Sem quantidade mínima</li>
+        <li>Coleta em Uberlândia</li>
+        <li>Também recebemos material de outras cidades (frete por conta de quem envia)</li>
+      </ul>
+    </div>
+    {% include "formulario.njk" %}
+  </div>
+</section>
+
+<section class="secao secao-cinza">
+  <div class="wrap">
+    <p class="sobretitulo">Dúvidas de empresas</p>
+    <h2>Perguntas frequentes</h2>
+    <div class="faq">
+      {%- for g in faq %}{% if g.grupo == "Para empresas" %}{% for i in g.itens %}
+      <details><summary>{{ i.p }}</summary><p>{{ i.r }}</p></details>
+      {%- endfor %}{% endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "cta-final.njk" %}

@@ -1,0 +1,39 @@
+{
+  "nome": "Codel Reciclagem",
+  "nomeGoogle": "Codel - Coleta e descarte de eletrônicos",
+  "razaoSocial": "Codel Reciclagem Ltda",
+  "cnpj": "24.365.731/0001-07",
+  "url": "https://codelreciclagem.com.br",
+  "telefone": "(34) 99672-3880",
+  "telefoneE164": "+5534996723880",
+  "whatsapp": "5534996723880",
+  "whatsappMensagem": "Olá! Vim pelo site da Codel e gostaria de mais informações.",
+  "email": "contato@codelreciclagem.com.br",
+  "emailComercial": "comercial@codelreciclagem.com.br",
+  "emailConduta": "conduta@codelreciclagem.com.br",
+  "endereco": {
+    "rua": "Rua Ituiutaba, 470",
+    "bairro": "Nossa Senhora Aparecida",
+    "cidade": "Uberlândia",
+    "uf": "MG",
+    "cep": "38.400-614"
+  },
+  "horario": [
+    {
+      "dias": "Segunda a sexta",
+      "horas": "07:20 às 17:00"
+    },
+    {
+      "dias": "Sábado",
+      "horas": "08:00 às 12:00"
+    },
+    {
+      "dias": "Domingo",
+      "horas": "Fechado"
+    }
+  ],
+  "youtube": "https://www.youtube.com/@CodelReciclagem",
+  "videoId": "t5lspib6soM",
+  "gtm": "GTM-PJZ258XN",
+  "web3formsKey": ""
+}

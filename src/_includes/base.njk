@@ -1,0 +1,143 @@
+{%- from "icones.njk" import icone -%}
+{%- set e = empresa -%}
+{%- set urlPagina = e.url + page.url -%}
+{%- set msgWhats = whatsMensagem or e.whatsappMensagem -%}
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google Tag Manager (conversões do Google Ads) -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ e.gtm }}');</script>
+<!-- Google Analytics (não está dentro do GTM; no WordPress vinha de um plugin) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3QLNCC8RXS"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-3QLNCC8RXS');</script>
+
+<title>{{ titulo }}</title>
+<meta name="description" content="{{ descricao }}">
+<link rel="canonical" href="{{ urlPagina }}">
+<meta name="theme-color" content="#0b1470">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="{{ e.nome }}">
+<meta property="og:title" content="{{ titulo }}">
+<meta property="og:description" content="{{ descricao }}">
+<meta property="og:url" content="{{ urlPagina }}">
+<meta property="og:image" content="{{ e.url }}/assets/img/og-codel.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preload" href="/assets/fonts/alegreya-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/alegreya-sans-extrabold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/style.css?v={{ build.versao }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "RecyclingCenter",
+  "name": {{ e.nomeGoogle | dump | safe }},
+  "legalName": {{ e.razaoSocial | dump | safe }},
+  "url": {{ e.url | dump | safe }},
+  "logo": "{{ e.url }}/assets/img/logo-codel.png",
+  "image": "{{ e.url }}/assets/img/og-codel.jpg",
+  "telephone": "{{ e.telefoneE164 }}",
+  "email": "{{ e.email }}",
+  "taxID": "{{ e.cnpj }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": {{ e.endereco.rua | dump | safe }},
+    "addressLocality": {{ e.endereco.cidade | dump | safe }},
+    "addressRegion": "{{ e.endereco.uf }}",
+    "postalCode": "{{ e.endereco.cep | replace('.', '') }}",
+    "addressCountry": "BR"
+  },
+  "areaServed": "Uberlândia",
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "07:20", "closes": "17:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "08:00", "closes": "12:00" }
+  ],
+  "sameAs": [{{ e.youtube | dump | safe }}]
+}
+</script>
+{%- if faqSchema %}
+<script type="application/ld+json">{{ faq | faqSchema | safe }}</script>
+{%- endif %}
+</head>
+<body class="pg-{{ classe or 'interna' }}">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ e.gtm }}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="topo">
+  <div class="faixa-info">
+    <div class="wrap">
+      <span>{{ icone("relogio", "ico ico-sm") }} Seg–sex 07:20–17:00 · Sáb 08:00–12:00</span>
+      <a href="tel:{{ e.telefoneE164 }}" data-evento="clique_telefone">{{ icone("telefone", "ico ico-sm") }} {{ e.telefone }}</a>
+    </div>
+  </div>
+  <div class="wrap barra">
+    <a class="marca" href="/" aria-label="Codel Reciclagem — página inicial">
+      <img src="/assets/img/logo-codel.webp" alt="Codel" width="180" height="69">
+    </a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">{{ icone("menu") }}<span>Menu</span></button>
+    <nav id="menu" class="menu" aria-label="Principal">
+      <ul>
+        {%- for item in navegacao %}
+        <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.texto }}</a></li>
+        {%- endfor %}
+      </ul>
+      <a class="btn btn-whats btn-sm" href="{{ msgWhats | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+{{ content | safe }}
+</main>
+
+<footer class="rodape">
+  <div class="wrap rodape-grade">
+    <div>
+      <img src="/assets/img/logo-codel-branco.png" alt="Codel" width="150" height="58" loading="lazy">
+      <p>Coleta, descarte e reciclagem de resíduo eletrônico em Uberlândia há 10 anos.</p>
+      <p class="pequeno">{{ e.razaoSocial }} · CNPJ {{ e.cnpj }}</p>
+    </div>
+    <div>
+      <h2>Contato</h2>
+      <ul class="lista-contato">
+        <li><a href="{{ msgWhats | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} WhatsApp {{ e.telefone }}</a></li>
+        <li><a href="tel:{{ e.telefoneE164 }}" data-evento="clique_telefone">{{ icone("telefone") }} {{ e.telefone }}</a></li>
+        <li><a href="mailto:{{ e.email }}">{{ icone("email") }} {{ e.email }}</a></li>
+        <li><a href="{{ (e.endereco.rua + ', ' + e.endereco.bairro + ', ' + e.endereco.cidade + ' - ' + e.endereco.uf) | mapsLink }}" target="_blank" rel="noopener">{{ icone("mapa") }} {{ e.endereco.rua }} – {{ e.endereco.bairro }}<br>{{ e.endereco.cidade }} – {{ e.endereco.uf }} · CEP {{ e.endereco.cep }}</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2>Horário</h2>
+      <ul class="lista-horario">
+        {%- for h in e.horario %}<li><span>{{ h.dias }}</span> <span>{{ h.horas }}</span></li>{% endfor %}
+      </ul>
+      <h2>Páginas</h2>
+      <ul class="lista-links">
+        {%- for item in navegacao %}<li><a href="{{ item.url }}">{{ item.texto }}</a></li>{% endfor %}
+        <li><a href="/logistica-reversa/">Logística reversa</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap rodape-base">
+    <p>Canal de denúncia (Código de Conduta e Anticorrupção): <a href="mailto:{{ e.emailConduta }}">{{ e.emailConduta }}</a></p>
+    <p>© {{ build.ano }} Codel Reciclagem</p>
+  </div>
+</footer>
+
+<a class="whats-flutuante" href="{{ msgWhats | whats }}" target="_blank" rel="noopener" aria-label="Falar com a Codel no WhatsApp">{{ icone("whatsapp") }}</a>
+
+<script src="/assets/js/main.js?v={{ build.versao }}" defer></script>
+</body>
+</html>

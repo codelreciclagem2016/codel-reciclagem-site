@@ -1,0 +1,20 @@
+{%- from "icones.njk" import icone -%}
+<section class="secao" id="o-que-recebemos">
+  <div class="wrap">
+    <p class="sobretitulo">O que recebemos</p>
+    <h2>Tudo que funciona com energia, pilha ou bateria</h2>
+    <ul class="grade-materiais">
+      {%- for m in materiais.recebe %}
+      <li>{{ icone(m.icone) }}<span>{{ m.nome }}</span></li>
+      {%- endfor %}
+    </ul>
+    <div class="nao-recebe">
+      <p><strong>Não recebemos:</strong></p>
+      <ul>
+        {%- for m in materiais.naoRecebe %}
+        <li>{{ icone(m.icone) }}<span>{{ m.nome }}</span></li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </div>
+</section>

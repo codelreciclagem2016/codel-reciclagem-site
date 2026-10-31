@@ -1,0 +1,126 @@
+---
+layout: base.njk
+classe: inicio
+titulo: "Codel – Descarte e coleta de lixo eletrônico em Uberlândia"
+descricao: "Descarte de eletrônicos, pilhas, baterias e lâmpadas em Uberlândia. Coleta para empresas com MTR e certificado (CDF). Homologada para logística reversa."
+---
+{%- from "icones.njk" import icone -%}
+<section class="hero">
+  <div class="wrap hero-grade">
+    <div class="hero-texto">
+      <p class="sobretitulo">Uberlândia – MG · há 10 anos</p>
+      <h1>Descarte de eletrônicos com destino certo e documentação em dia</h1>
+      <p class="lead">A Codel recebe, coleta e recicla resíduo eletrônico — de um celular velho ao parque de TI inteiro da sua empresa.</p>
+      <div class="portas">
+        <a class="porta porta-empresa" href="/empresas/">
+          {{ icone("predio") }}
+          <span><strong>Sou empresa</strong><small>Coleta, MTR e certificado</small></span>
+          {{ icone("seta", "ico seta") }}
+        </a>
+        <a class="porta porta-casa" href="/pontos-de-coleta/">
+          {{ icone("casa") }}
+          <span><strong>Quero descartar</strong><small>Onde levar pilhas, baterias e eletrônicos</small></span>
+          {{ icone("seta", "ico seta") }}
+        </a>
+      </div>
+      <p class="links-menores">
+        <a href="/compradesucata/">Vender sucata (só empresas, com nota)</a>
+        <a href="/vendadeusados/">Comprar usados</a>
+      </p>
+    </div>
+    <figure class="hero-foto">
+      <img src="/assets/img/fachada.webp" srcset="/assets/img/fachada-640.webp 640w, /assets/img/fachada.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" alt="Fachada da Codel na Rua Ituiutaba, 470" width="1200" height="628" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+{% include "confianca.njk" %}
+
+<section class="secao">
+  <div class="wrap">
+    <p class="sobretitulo">Como funciona</p>
+    <h2>Três passos, sem complicação</h2>
+    <ol class="passos">
+      <li>
+        <span class="num">1</span>
+        <h3>Você traz ou a gente busca</h3>
+        <p>Pessoas trazem até a sede ou a um ponto de entrega. Empresas em Uberlândia podem pedir coleta no local.</p>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <h3>Triagem e descaracterização</h3>
+        <p>Separamos o que pode ser reaproveitado. Dados, logotipos e etiquetas são destruídos ou devolvidos ao cliente.</p>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <h3>Reciclagem e documentos</h3>
+        <p>Placas, metais, plásticos e baterias seguem para recicladores parceiros. Empresas recebem MTR e CDF.</p>
+      </li>
+    </ol>
+    <p><a class="link-seta" href="/processo/">Ver o processo completo {{ icone("seta") }}</a></p>
+  </div>
+</section>
+
+{% include "materiais.njk" %}
+
+<section class="secao secao-cinza">
+  <div class="wrap duas-colunas">
+    <div>
+      <p class="sobretitulo">Para empresas</p>
+      <h2>Coleta de lixo eletrônico para empresas</h2>
+      <ul class="lista-check">
+        <li>{{ icone("caminhao") }} Coleta no local, em Uberlândia, sem quantidade mínima</li>
+        <li>{{ icone("documento") }} MTR e Certificado de Destinação Final (CDF) pelos sistemas do órgão ambiental</li>
+        <li>{{ icone("escudo") }} Destruição de HDs e mídias para proteger os dados da empresa</li>
+        <li>{{ icone("reciclar") }} Relatório de descaracterização e rastreabilidade por lote</li>
+      </ul>
+      <a class="btn btn-primario" href="/empresas/">{{ icone("seta") }} Pedir orçamento de coleta</a>
+    </div>
+    <figure class="foto-lateral">
+      <img src="/assets/img/galpao.webp" srcset="/assets/img/galpao-640.webp 640w, /assets/img/galpao.webp 1200w" sizes="(max-width: 900px) 100vw, 45vw" alt="Galpão da Codel com material organizado em gaiolas e prateleiras" width="1200" height="628" loading="lazy">
+    </figure>
+  </div>
+</section>
+
+<section class="secao">
+  <div class="wrap">
+    <p class="sobretitulo">Outros serviços</p>
+    <h2>Mais que descarte</h2>
+    <div class="cartoes">
+      <a class="cartao" href="/compradesucata/">
+        {{ icone("cifrao") }}
+        <h3>Compramos sucata eletrônica</h3>
+        <p>De empresas, com nota fiscal. Placas, computadores, HDs, cobre, alumínio e mais.</p>
+      </a>
+      <a class="cartao" href="/vendadeusados/">
+        {{ icone("computador") }}
+        <h3>Vendemos usados</h3>
+        <p>Computadores, notebooks, monitores e peças testados, revisados e com garantia.</p>
+      </a>
+      <a class="cartao" href="/pontos-de-coleta/">
+        {{ icone("mapa") }}
+        <h3>8 pontos de entrega</h3>
+        <p>Nossa sede e 7 parceiros espalhados por Uberlândia.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="secao secao-cinza">
+  <div class="wrap duas-colunas video-bloco">
+    <div>
+      <p class="sobretitulo">Conheça a Codel</p>
+      <h2>Veja como trabalhamos</h2>
+      <p>Somos uma empresa de Uberlândia especializada no descarte correto de eletrônicos. Promovemos a coleta, o desmonte, a reutilização e a destinação adequada dos resíduos, sempre de acordo com a Política Nacional de Resíduos Sólidos (Lei 12.305/2010).</p>
+      <p><a class="link-seta" href="/sobre-nos/">Sobre a Codel {{ icone("seta") }}</a></p>
+    </div>
+    <div class="video" data-video="{{ empresa.videoId }}">
+      <a href="https://www.youtube.com/watch?v={{ empresa.videoId }}" target="_blank" rel="noopener" class="video-capa" aria-label="Assistir ao vídeo da Codel no YouTube">
+        <img src="https://i.ytimg.com/vi/{{ empresa.videoId }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+        <span class="play" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "cta-final.njk" %}

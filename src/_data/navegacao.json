@@ -1,0 +1,9 @@
+[
+  { "texto": "Para empresas", "url": "/empresas/" },
+  { "texto": "Onde descartar", "url": "/pontos-de-coleta/" },
+  { "texto": "Compramos sucata", "url": "/compradesucata/" },
+  { "texto": "Usados", "url": "/vendadeusados/" },
+  { "texto": "Como funciona", "url": "/processo/" },
+  { "texto": "Dúvidas", "url": "/faqs/" },
+  { "texto": "Sobre", "url": "/sobre-nos/" }
+]

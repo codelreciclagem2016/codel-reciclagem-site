@@ -1,0 +1,29 @@
+---
+layout: base.njk
+titulo: "Logística reversa de eletrônicos em Uberlândia | Codel"
+descricao: "A Codel é homologada pela ABREE e pela Circulare para processar eletroeletrônicos da logística reversa, ponto concentrador de pilhas (Green Eletron) e ponto de entrega de lâmpadas (Reciclus)."
+---
+{%- from "icones.njk" import icone -%}
+<section class="hero hero-interna hero-simples">
+  <div class="wrap">
+    <p class="sobretitulo">Logística reversa</p>
+    <h1>Logística reversa de eletroeletrônicos</h1>
+    <p class="lead">A logística reversa faz o produto voltar ao ciclo produtivo depois do uso, em vez de ir para o lixo comum. É prevista na Política Nacional de Resíduos Sólidos (Lei 12.305/2010).</p>
+  </div>
+</section>
+<section class="secao">
+  <div class="wrap">
+    <h2>A Codel no sistema de logística reversa</h2>
+    <ul class="parceiros parceiros-grandes">
+      {%- for p in parceiros %}
+      <li><strong>{{ p.nome }}</strong><span>{{ p.texto }}</span></li>
+      {%- endfor %}
+    </ul>
+    <p>Na prática, isso significa que o consumidor pode deixar seus eletrônicos, pilhas e lâmpadas com a gente, e esse material segue o caminho correto: coleta, separação, desmonte, reciclagem e destinação adequada de cada fração.</p>
+    <div class="botoes">
+      <a class="btn btn-primario" href="/pontos-de-coleta/">{{ icone("mapa") }} Onde descartar</a>
+      <a class="btn btn-claro" href="/empresas/">{{ icone("predio") }} Coleta para empresas</a>
+    </div>
+  </div>
+</section>
+{% include "cta-final.njk" %}

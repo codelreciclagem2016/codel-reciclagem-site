@@ -1,0 +1,14 @@
+<section class="faixa-confianca" aria-label="Por que confiar na Codel">
+  <div class="wrap">
+    <ul class="numeros">
+      {%- for n in numeros %}
+      <li><strong>{{ n.valor }}</strong><span>{{ n.texto }}</span></li>
+      {%- endfor %}
+    </ul>
+    <ul class="parceiros">
+      {%- for p in parceiros %}
+      <li><strong>{{ p.nome }}</strong><span>{{ p.texto }}</span></li>
+      {%- endfor %}
+    </ul>
+  </div>
+</section>

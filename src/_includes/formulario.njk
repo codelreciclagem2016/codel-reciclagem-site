@@ -1,0 +1,18 @@
+{%- from "icones.njk" import icone -%}
+{#- Formulário de orçamento. Envia para comercial@ pelo Web3Forms (sem banco de dados).
+    Sem a chave configurada, o formulário monta a mensagem e abre o WhatsApp. -#}
+<form class="form" id="form-orcamento" data-chave="{{ empresa.web3formsKey }}" data-origem="{{ origemForm or page.url }}" novalidate>
+  <input type="hidden" name="subject" value="Novo pedido de orçamento pelo site — Codel">
+  <input type="hidden" name="from_name" value="Site Codel">
+  <input type="checkbox" name="botcheck" class="isca" tabindex="-1" autocomplete="off" aria-hidden="true">
+  <div class="campos">
+    <label>Nome<input name="nome" autocomplete="name" required></label>
+    <label>Empresa<input name="empresa" autocomplete="organization"></label>
+    <label>WhatsApp ou telefone<input name="telefone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+    <label>E-mail<input name="email" type="email" autocomplete="email"></label>
+    <label class="largo">O que você precisa descartar?<textarea name="mensagem" rows="4" required placeholder="Ex.: 15 computadores, 4 impressoras e uma caixa de cabos. Bairro: Centro."></textarea></label>
+  </div>
+  <p class="pequeno">Se puder, mande fotos do material pelo WhatsApp — isso agiliza o orçamento.</p>
+  <button class="btn btn-primario" type="submit">{{ icone("seta") }} Pedir orçamento</button>
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>

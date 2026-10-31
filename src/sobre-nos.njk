@@ -1,0 +1,48 @@
+---
+layout: base.njk
+titulo: "Sobre a Codel Reciclagem | Uberlândia"
+descricao: "A Codel é uma empresa de Uberlândia especializada no descarte correto de eletrônicos: coleta, desmonte, reutilização e reciclagem de resíduo eletrônico."
+---
+{%- from "icones.njk" import icone -%}
+<section class="hero hero-interna">
+  <div class="wrap hero-grade">
+    <div class="hero-texto">
+      <p class="sobretitulo">Sobre nós</p>
+      <h1>Transformar resíduo eletrônico em oportunidade</h1>
+      <p class="lead">Somos uma empresa de Uberlândia especializada no descarte correto de eletrônicos. Fazemos a coleta, o desmonte, a destinação dos resíduos e a reutilização de equipamentos, peças e componentes.</p>
+    </div>
+    <figure class="hero-foto">
+      <img src="/assets/img/galpao.webp" srcset="/assets/img/galpao-640.webp 640w, /assets/img/galpao.webp 1200w" sizes="(max-width: 900px) 100vw, 50vw" alt="Galpão da Codel" width="1200" height="628" fetchpriority="high">
+    </figure>
+  </div>
+</section>
+
+{% include "confianca.njk" %}
+
+<section class="secao">
+  <div class="wrap">
+    <div class="cartoes">
+      <div class="cartao"><h2>Missão</h2><p>Respeitar a vida, transformando resíduo eletrônico em oportunidades.</p></div>
+      <div class="cartao"><h2>Visão</h2><p>Ser referência na manufatura reversa de resíduo eletrônico em Uberlândia e região.</p></div>
+      <div class="cartao"><h2>Valores</h2><p>Ética, honestidade, inovação, integridade, respeito à vida, sustentabilidade e transparência.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="secao secao-cinza">
+  <div class="wrap duas-colunas">
+    <div>
+      <h2>Desempenho econômico com cuidado ambiental e social</h2>
+      <p>Acreditamos que não existe bom resultado econômico sem cuidar do meio ambiente e das pessoas. Por isso, cada etapa — da coleta à destinação — é pensada para evitar que resíduos acabem em aterros e para devolver materiais ao ciclo produtivo.</p>
+      <p>Trabalhamos de acordo com a Política Nacional de Resíduos Sólidos (Lei 12.305/2010) e somos homologados para a logística reversa de eletroeletrônicos.</p>
+    </div>
+    <div class="video" data-video="{{ empresa.videoId }}">
+      <a href="https://www.youtube.com/watch?v={{ empresa.videoId }}" target="_blank" rel="noopener" class="video-capa" aria-label="Assistir ao vídeo da Codel no YouTube">
+        <img src="https://i.ytimg.com/vi/{{ empresa.videoId }}/hqdefault.jpg" alt="" width="480" height="360" loading="lazy">
+        <span class="play" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include "cta-final.njk" %}

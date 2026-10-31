@@ -1,0 +1,13 @@
+{
+  "name": "codel-reciclagem-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  },
+  "engines": { "node": ">=20" }
+}

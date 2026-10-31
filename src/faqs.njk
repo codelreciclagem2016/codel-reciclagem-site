@@ -1,0 +1,26 @@
+---
+layout: base.njk
+titulo: "Dúvidas frequentes sobre descarte de eletrônicos | Codel"
+descricao: "Como funciona o descarte, o que a Codel recebe e compra, horário de funcionamento, coleta para empresas, MTR e CDF."
+faqSchema: true
+---
+<section class="hero hero-interna hero-simples">
+  <div class="wrap">
+    <p class="sobretitulo">Dúvidas</p>
+    <h1>Perguntas frequentes</h1>
+    <p class="lead">Não encontrou o que procura? Chame a gente no WhatsApp.</p>
+  </div>
+</section>
+<section class="secao">
+  <div class="wrap faq-pagina">
+    {%- for g in faq %}
+    <h2>{{ g.grupo }}</h2>
+    <div class="faq">
+      {%- for i in g.itens %}
+      <details><summary>{{ i.p }}</summary><p>{{ i.r }}</p></details>
+      {%- endfor %}
+    </div>
+    {%- endfor %}
+  </div>
+</section>
+{% include "cta-final.njk" %}
