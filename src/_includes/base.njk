@@ -47,7 +47,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "image": "{{ e.url }}/assets/img/og-codel.jpg",
   "telephone": "{{ e.telefoneE164 }}",
   "email": "{{ e.email }}",
-  "taxID": "{{ e.cnpj }}",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": {{ e.endereco.rua | dump | safe }},
@@ -105,7 +104,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div>
       <img src="/assets/img/logo-codel-branco.png" alt="Codel" width="150" height="58" loading="lazy">
       <p>Coleta, descarte e reciclagem de resíduo eletrônico em Uberlândia há 10 anos.</p>
-      <p class="pequeno">{{ e.razaoSocial }} · CNPJ {{ e.cnpj }}</p>
     </div>
     <div>
       <h2>Contato</h2>

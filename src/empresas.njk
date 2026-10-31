@@ -1,7 +1,7 @@
 ---
 layout: base.njk
 titulo: "Coleta de lixo eletrônico para empresas em Uberlândia | Codel"
-descricao: "Coleta de eletrônicos da sua empresa em Uberlândia com MTR, certificado de destinação (CDF), destruição de dados e relatório de rastreabilidade. Sem quantidade mínima."
+descricao: "Coleta de eletrônicos da sua empresa em Uberlândia com MTR, certificado de destinação (CDF), destruição de dados e relatório de rastreabilidade."
 whatsMensagem: "Olá! Sou de uma empresa e gostaria de um orçamento de coleta de eletrônicos."
 origemForm: "empresas"
 ctaTitulo: "Prefere conversar antes?"
@@ -32,11 +32,11 @@ ctaTexto: "Chame no WhatsApp e mande fotos do material. Montamos o orçamento a 
     <p class="sobretitulo">O caminho do seu resíduo</p>
     <h2>Da coleta ao certificado</h2>
     <ol class="trilha">
-      <li>{{ icone("caminhao") }}<h3>Coleta</h3><p>Buscamos o material na sua empresa, em Uberlândia. Não há quantidade mínima.</p></li>
-      <li>{{ icone("documento") }}<h3>MTR</h3><p>O transporte sai acompanhado do Manifesto de Transporte de Resíduos, emitido no sistema do órgão ambiental (em Minas Gerais, a FEAM).</p></li>
+      <li>{{ icone("caminhao") }}<h3>Coleta</h3><p>Buscamos o material na sua empresa, em Uberlândia, no dia combinado.</p></li>
+      <li>{{ icone("documento") }}<h3>MTR</h3><p>Sua empresa emite o Manifesto de Transporte de Resíduos no sistema do órgão ambiental (em Minas Gerais, o da FEAM), indicando a Codel como destinadora.</p></li>
       <li>{{ icone("escudo") }}<h3>Descaracterização</h3><p>HDs, SSDs e cartões de memória podem ser destruídos. Logotipos e etiquetas são retirados.</p></li>
       <li>{{ icone("reciclar") }}<h3>Reciclagem</h3><p>Desmonte, triagem e envio das frações para recicladores e refinadores parceiros.</p></li>
-      <li>{{ icone("check") }}<h3>CDF</h3><p>O Certificado de Destinação Final é emitido no primeiro dia útil do mês seguinte à solicitação. Em casos urgentes, emitimos antes, mediante pedido.</p></li>
+      <li>{{ icone("check") }}<h3>CDF</h3><p>O Certificado de Destinação Final é emitido no primeiro dia útil do mês seguinte à data de entrega do material. Em casos urgentes, emitimos antes, mediante pedido.</p></li>
     </ol>
   </div>
 </section>
@@ -67,7 +67,6 @@ ctaTexto: "Chame no WhatsApp e mande fotos do material. Montamos o orçamento a 
       <h2>Peça um orçamento de coleta</h2>
       <p>O valor depende do tipo de material, da quantidade e do local. Conte o que precisa descartar e retornamos com a proposta.</p>
       <ul class="lista-simples">
-        <li>Sem quantidade mínima</li>
         <li>Coleta em Uberlândia</li>
         <li>Também recebemos material de outras cidades (frete por conta de quem envia)</li>
       </ul>
@@ -81,9 +80,9 @@ ctaTexto: "Chame no WhatsApp e mande fotos do material. Montamos o orçamento a 
     <p class="sobretitulo">Dúvidas de empresas</p>
     <h2>Perguntas frequentes</h2>
     <div class="faq">
-      {%- for g in faq %}{% if g.grupo == "Para empresas" %}{% for i in g.itens %}
+      {%- for g in faq %}{% if g.grupo == "Para empresas" %}{% for i in g.itens %}{% if not i.soNaPaginaFaq %}
       <details><summary>{{ i.p }}</summary><p>{{ i.r }}</p></details>
-      {%- endfor %}{% endif %}{% endfor %}
+      {%- endif %}{% endfor %}{% endif %}{% endfor %}
     </div>
   </div>
 </section>

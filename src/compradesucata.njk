@@ -2,35 +2,35 @@
 layout: base.njk
 titulo: "Compramos sucata eletrônica de empresas | Codel Uberlândia"
 descricao: "A Codel compra sucata eletrônica de empresas (CNPJ) com nota fiscal: placas, computadores, HDs, servidores, cobre, alumínio, aço inox e baterias de chumbo."
-whatsMensagem: "Olá! Sou de uma empresa e tenho sucata eletrônica para vender. Podem me passar a tabela de preços?"
-ctaTitulo: "Quer a nossa tabela de preços?"
-ctaTexto: "Peça pelo WhatsApp e informe o CNPJ da empresa."
+whatsMensagem: "Olá! Sou de uma empresa e tenho sucata eletrônica para vender. Gostaria de um orçamento."
+ctaTitulo: "Quer vender a sucata da sua empresa?"
+ctaTexto: "Mande pelo WhatsApp o tipo de material, a quantidade e, se puder, fotos. Retornamos com o orçamento."
 ---
 {%- from "icones.njk" import icone -%}
 <section class="hero hero-interna hero-simples">
   <div class="wrap">
     <p class="sobretitulo">Compra de sucata</p>
     <h1>Compramos sucata eletrônica da sua empresa</h1>
-    <p class="lead">Pagamos por unidade os itens que podem ser reaproveitados e por quilo os que vão para reciclagem.</p>
-    <p class="aviso aviso-forte">{{ icone("documento") }} <span><strong>Compramos somente de empresas (CNPJ), com emissão de nota fiscal.</strong> Não compramos de pessoa física.</span></p>
+    <p class="lead">Cada lote é avaliado de acordo com o tipo e o estado do material. Conte o que sua empresa tem e faça seu orçamento.</p>
+    <a class="btn btn-whats" href="{{ whatsMensagem | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} Fazer orçamento pelo WhatsApp</a>
+    <p class="aviso aviso-forte" style="margin-top:22px">{{ icone("documento") }} <span><strong>Compramos somente de empresas (CNPJ), com emissão de nota fiscal.</strong> Não compramos de pessoa física.</span></p>
   </div>
 </section>
 
 <section class="secao secao-verde-claro">
   <div class="wrap duas-colunas listas-compra">
     <div class="caixa">
-      <h2>Para reaproveitamento <small>pagamento por unidade</small></h2>
+      <h2>Equipamentos para reaproveitamento</h2>
       <ul class="lista-simples colunas-2">
         <li>Computador</li><li>Notebook</li><li>Monitor</li><li>Placa-mãe</li><li>Processador</li><li>Memória RAM</li><li>SSD</li>
       </ul>
       <p class="pequeno">Esses itens precisam ser levados até a Codel para avaliação. Antes, confira com nossa equipe técnica a configuração mínima.</p>
     </div>
     <div class="caixa">
-      <h2>Para reciclagem <small>pagamento por quilo</small></h2>
+      <h2>Sucata para reciclagem</h2>
       <ul class="lista-simples colunas-2">
         <li>Placas de qualquer equipamento</li><li>Celular</li><li>Computador (com placas)</li><li>Notebook (com placas)</li><li>Servidor (com placas)</li><li>Switch (com placas)</li><li>HD de computador ou servidor</li><li>Processador</li><li>Estabilizador (com transformador)</li><li>No-break (com transformador)</li><li>Bateria de chumbo-ácido</li><li>Cobre e fio de cobre</li><li>Cabo de energia</li><li>Alumínio</li><li>Aço inox</li>
       </ul>
-      <p class="pequeno">O valor segue nossa tabela de preços por quilo.</p>
     </div>
   </div>
 </section>

@@ -2,10 +2,10 @@
   {
     "grupo": "Geral",
     "itens": [
-      { "p": "Como funciona o descarte com a Codel?", "r": "Você pode trazer seus eletrônicos até a nossa sede, na Rua Ituiutaba, 470, ou deixar em um dos pontos de entrega parceiros. Para empresas, também fazemos a coleta no local, com MTR e certificado de destinação (CDF). Tudo o que recebemos é triado: o que ainda funciona pode ser reaproveitado, e o restante é desmontado e enviado para reciclagem." },
+      { "p": "Como funciona o descarte com a Codel?", "r": "Você pode trazer seus eletrônicos até a nossa sede, na Rua Ituiutaba, 470, ou deixar em um dos pontos de entrega parceiros. Para empresas, também fazemos a coleta no local, com certificado de destinação (CDF). Tudo o que recebemos é triado: o que ainda funciona pode ser reaproveitado, e o restante é desmontado e enviado para reciclagem." },
       { "p": "O que vocês recebem?", "r": "Todo equipamento que funciona com energia elétrica, pilha ou bateria, além de acessórios e componentes. Por exemplo: computadores, notebooks, celulares, impressoras, cabos, placas, eletrodomésticos grandes e pequenos, ferramentas elétricas, TVs, aparelhos de som, videogames, pilhas, baterias, lâmpadas e cartuchos de tinta." },
-      { "p": "O que vocês não recebem?", "r": "Não recebemos latas de metal nem materiais com contaminação biológica, química ou radioativa." },
-      { "p": "Pessoa física paga para descartar?", "r": "Na maioria dos casos, não. Como a Codel é homologada para a logística reversa de eletrônicos, você pode descartar seus equipamentos, pilhas e lâmpadas sem custo. Alguns itens de destinação mais complexa (como TV ou monitor de tubo) podem ter custo — fale com a gente antes de trazer." },
+      { "p": "O que vocês não recebem?", "r": "Não recebemos materiais com contaminação biológica, química ou radioativa." },
+      { "p": "Pessoa física paga para descartar?", "r": "Na maioria dos casos, não. Como a Codel é homologada para a logística reversa de eletrônicos, você pode descartar seus equipamentos, pilhas e lâmpadas sem custo. Alguns itens têm custo de destinação, mesmo para pessoa física: TV e monitor de tubo, toner, cartuchos de tinta e mídias (CDs, DVDs, disquetes, fitas K7 e VHS). Fale com a gente antes de trazer." },
       { "p": "Qual o horário de funcionamento?", "r": "De segunda a sexta, das 07:20 às 17:00. Na maioria dos sábados abrimos das 08:00 às 12:00, mas nem todos — se for vir no sábado, confirme antes pelo WhatsApp. Aos domingos não abrimos." },
       { "p": "A Codel atende todo o Brasil?", "r": "A coleta é feita apenas em Uberlândia. Mas recebemos equipamentos de qualquer região do país — nesse caso, o frete até a Codel fica por conta de quem envia." }
     ]
@@ -14,10 +14,10 @@
     "grupo": "Para empresas",
     "itens": [
       { "p": "Como pedir uma coleta?", "r": "Pelo formulário da página Empresas ou pelo WhatsApp (34) 99672-3880. Conte o tipo de material e uma ideia da quantidade. Se puder, mande fotos pelo WhatsApp: isso agiliza o orçamento." },
-      { "p": "Existe quantidade mínima?", "r": "Não. Atendemos empresas de todos os portes." },
+      { "p": "Existe quantidade mínima?", "r": "Não. Atendemos empresas de todos os portes.", "soNaPaginaFaq": true },
       { "p": "A coleta tem custo?", "r": "Sim. O valor depende do tipo de material, da quantidade e do local. Entre em contato para receber um orçamento." },
-      { "p": "Quais documentos a empresa recebe?", "r": "O MTR (Manifesto de Transporte de Resíduos) e o CDF (Certificado de Destinação Final), emitidos nos sistemas oficiais dos órgãos ambientais — em Minas Gerais, pela FEAM. Quando necessário, também emitimos relatório de descaracterização e de rastreabilidade do material." },
-      { "p": "Quando o CDF é emitido?", "r": "Emitimos os CDFs no primeiro dia útil do mês seguinte à solicitação. Em casos de urgência, mediante pedido do cliente, podemos emitir antes." },
+      { "p": "Quais documentos a empresa recebe?", "r": "O MTR (Manifesto de Transporte de Resíduos) é emitido pela própria empresa geradora no sistema do órgão ambiental (em Minas Gerais, o da FEAM), indicando a Codel como destinadora. Depois de receber o material, a Codel emite o CDF (Certificado de Destinação Final). Quando necessário, também emitimos relatório de descaracterização e de rastreabilidade do material." },
+      { "p": "Quando o CDF é emitido?", "r": "Emitimos os CDFs no primeiro dia útil do mês seguinte à data de entrega do material. Em casos de urgência, mediante pedido do cliente, podemos emitir antes." },
       { "p": "E os dados que estão nos equipamentos?", "r": "Discos rígidos, SSDs e cartões de memória podem ser destruídos para garantir a segurança das informações. Logotipos, etiquetas e selos também são retirados e destruídos ou devolvidos ao cliente. Se o material da sua empresa não pode ser reaproveitado de forma alguma, avise no pedido: ele vai direto para a reciclagem." },
       { "p": "Por que a empresa precisa descartar corretamente?", "r": "Porque é uma obrigação legal. A Política Nacional de Resíduos Sólidos (Lei 12.305/2010) define a responsabilidade de quem gera o resíduo. O descarte correto, com documentação, protege a empresa em fiscalizações e auditorias." }
     ]

@@ -34,7 +34,7 @@ whatsMensagem: "Olá! Quero descartar alguns eletrônicos. Pode me ajudar?"
         <li>{{ icone("relogio") }} <span>{% for h in e.horario %}{% if h.horas != "Fechado" %}{{ h.dias }}: {{ h.horas }}{% if h.nota %}<br><small>{{ h.nota }}</small>{% endif %}<br>{% endif %}{% endfor %}</span></li>
         <li>{{ icone("telefone") }} <a href="tel:{{ e.telefoneE164 }}" data-evento="clique_telefone">{{ e.telefone }}</a></li>
       </ul>
-      <p class="pequeno">Para a maioria dos itens, o descarte por pessoa física é gratuito. Alguns itens, como TV e monitor de tubo, podem ter custo — confirme antes pelo WhatsApp.</p>
+      <p class="pequeno">Para a maioria dos itens, o descarte por pessoa física é gratuito. Alguns itens têm custo de destinação, mesmo para pessoa física: TV e monitor de tubo, toner, cartuchos de tinta e mídias (CDs, DVDs, disquetes, fitas K7 e VHS). Confirme antes pelo WhatsApp.</p>
       <a class="btn btn-claro" href="{{ (e.endereco.rua + ', ' + e.endereco.bairro + ', ' + e.endereco.cidade + ' - MG') | mapsLink }}" target="_blank" rel="noopener">{{ icone("mapa") }} Como chegar</a>
     </div>
     <div class="sede-midia">

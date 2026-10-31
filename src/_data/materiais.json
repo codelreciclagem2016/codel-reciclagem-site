@@ -51,10 +51,6 @@
   ],
   "naoRecebe": [
     {
-      "icone": "lata",
-      "nome": "Latas de metal"
-    },
-    {
       "icone": "risco",
       "nome": "Material com contaminação biológica, química ou radioativa"
     }
