@@ -3,6 +3,7 @@ layout: base.njk
 titulo: "Computadores e peças usados com garantia em Uberlândia | Codel"
 descricao: "Computadores, notebooks, monitores e peças usados, testados e revisados, com garantia. Consulte o estoque da Codel pelo WhatsApp."
 whatsMensagem: "Olá! Quero saber quais equipamentos usados vocês têm disponíveis."
+contato: reuso
 ctaTitulo: "Procurando algo específico?"
 ctaTexto: "O estoque muda toda semana. Pergunte pelo WhatsApp o que temos hoje."
 ---
@@ -12,7 +13,7 @@ ctaTexto: "O estoque muda toda semana. Pergunte pelo WhatsApp o que temos hoje."
     <p class="sobretitulo">Área de reuso</p>
     <h1>Equipamentos usados, testados e com garantia</h1>
     <p class="lead">Parte do que recebemos ainda tem muita vida útil. Esses equipamentos passam por teste, revisão, reparo e limpeza antes de voltar ao mercado, por um preço justo.</p>
-    <a class="btn btn-whats" href="{{ whatsMensagem | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} Consultar o estoque no WhatsApp</a>
+    <a class="btn btn-whats" href="{{ whatsMensagem | whats(empresa.reuso.whatsapp) }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} Consultar o estoque no WhatsApp</a>
   </div>
 </section>
 
@@ -27,7 +28,7 @@ ctaTexto: "O estoque muda toda semana. Pergunte pelo WhatsApp o que temos hoje."
     <div class="caixa">
       <h2>Como comprar</h2>
       <ul class="lista-check">
-        <li>{{ icone("whatsapp") }} <span>Consulte a disponibilidade pelo WhatsApp</span></li>
+        <li>{{ icone("whatsapp") }} <span>Consulte a disponibilidade com a equipe do reuso: <a href="{{ whatsMensagem | whats(empresa.reuso.whatsapp) }}" target="_blank" rel="noopener">{{ empresa.reuso.telefone }}</a></span></li>
         <li>{{ icone("mapa") }} <span>Retire na Codel, na Rua Ituiutaba, 470</span></li>
         <li>{{ icone("cifrao") }} <span>Pagamento em dinheiro, cartão de débito ou crédito, e boleto para empresas</span></li>
         <li>{{ icone("escudo") }} <span>Todos os itens com garantia</span></li>

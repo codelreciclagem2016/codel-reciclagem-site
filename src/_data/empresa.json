@@ -36,5 +36,10 @@
   "youtube": "https://www.youtube.com/@CodelReciclagem",
   "videoId": "t5lspib6soM",
   "gtm": "GTM-PJZ258XN",
-  "web3formsKey": "9d7e1723-9b74-4525-aa1e-3644bdbde94d"
+  "web3formsKey": "9d7e1723-9b74-4525-aa1e-3644bdbde94d",
+  "reuso": {
+    "telefone": "(34) 98406-9880",
+    "telefoneE164": "+5534984069880",
+    "whatsapp": "5534984069880"
+  }
 }

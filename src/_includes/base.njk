@@ -2,6 +2,8 @@
 {%- set e = empresa -%}
 {%- set urlPagina = e.url + page.url -%}
 {%- set msgWhats = whatsMensagem or e.whatsappMensagem -%}
+{#- Páginas com contato próprio (ex.: área de reuso) usam outro número no WhatsApp -#}
+{%- set numWhats = (e[contato].whatsapp if contato else e.whatsapp) -%}
 <!doctype html>
 <html lang="pt-BR">
 <head>
@@ -90,7 +92,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.texto }}</a></li>
         {%- endfor %}
       </ul>
-      <a class="btn btn-whats btn-sm" href="{{ msgWhats | whats }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} WhatsApp</a>
+      <a class="btn btn-whats btn-sm" href="{{ msgWhats | whats(numWhats) }}" target="_blank" rel="noopener">{{ icone("whatsapp") }} WhatsApp</a>
     </nav>
   </div>
 </header>
@@ -133,7 +135,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </div>
 </footer>
 
-<a class="whats-flutuante" href="{{ msgWhats | whats }}" target="_blank" rel="noopener" aria-label="Falar com a Codel no WhatsApp">{{ icone("whatsapp") }}</a>
+<a class="whats-flutuante" href="{{ msgWhats | whats(numWhats) }}" target="_blank" rel="noopener" aria-label="Falar com a Codel no WhatsApp">{{ icone("whatsapp") }}</a>
 
 <script src="/assets/js/main.js?v={{ build.versao }}" defer></script>
 </body>
