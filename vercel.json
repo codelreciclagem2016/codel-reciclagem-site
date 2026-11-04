@@ -10,6 +10,7 @@
     { "source": "/faq/", "destination": "/faqs/", "permanent": true },
     { "source": "/sobre/", "destination": "/sobre-nos/", "permanent": true },
     { "source": "/contato/", "destination": "/empresas/#orcamento", "permanent": true },
+    { "source": "/empresas/coleta/", "destination": "/empresas/", "permanent": true },
     { "source": "/wp-admin/:path*", "destination": "/", "permanent": true },
     { "source": "/wp-login.php", "destination": "/", "permanent": true },
     { "source": "/feed/:path*", "destination": "/", "permanent": true }
